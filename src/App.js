@@ -2,6 +2,7 @@ import './App.css';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import { useState } from 'react';
 
 import {useAuthState, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
@@ -58,14 +59,28 @@ function ChatPage(){
   
   const [messages] = useCollectionData(query, {idField: 'id'});
 
+  const [formValue, setFormValue] = useState('');
+
+  const sendMessage = async(e) => {
+    e.preventDefault();
+    const {uid, photoURL} = auth.currentUser;
+    await messagesRef.add({
+      text: formValue,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      uid,
+      photoURL
+    });
+    setFormValue(''); 
+  }
+
   return(
     <>
       <div>
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
       </div>
 
-      <form>
-        <input/>
+      <form onSubmit={sendMessage}>
+        <input value={formValue} onChange={(e) => setFormValue(e.target.value)}/>
         <button type="submit">➤</button>
       </form>
     </>
