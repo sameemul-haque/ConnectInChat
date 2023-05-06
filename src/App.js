@@ -64,9 +64,10 @@ function ChatPage(){
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
       </div>
 
-      <div>
-        
-      </div>
+      <form>
+        <input/>
+        <button type="submit">➤</button>
+      </form>
     </>
   )
 }
