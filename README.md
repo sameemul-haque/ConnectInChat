@@ -1,7 +1,9 @@
 # ConnectInChat
 
-###  A real-time chat app created using react and firebsae
-### <a href="https://connectinchat.web.app/"> connectinchat.web.app </a>
+- A real-time chat app created using react and firebsae
+- <a href="https://connectinchat.web.app/"> connectinchat.web.app </a>
+- Sign in using Google account
+- A single public chat room
 
 ---
 ### Languages and Tools used:
