@@ -27,8 +27,9 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-
+      <header>
+        <h1>ConnectInChat</h1>
+        <SignOut />
       </header>
       <section>
         {user ? <ChatPage />:<SignIn />}
@@ -84,10 +85,11 @@ function ChatPage(){
       <main>
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
         <div ref={dummy}></div>
+        <span ref={dummy}></span>
       </main>
 
       <form onSubmit={sendMessage}>
-        <input value={formValue} onChange={(e) => setFormValue(e.target.value)}/>
+        <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder='Enter your message' />
         <button type="submit">➤</button>
       </form>
     </>
