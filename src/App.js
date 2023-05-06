@@ -2,6 +2,7 @@ import './App.css';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import { useRef } from 'react';
 import { useState } from 'react';
 
 import {useAuthState, useSignInWithGoogle} from 'react-firebase-hooks/auth';
@@ -54,6 +55,9 @@ function SignOut(){
 }
 
 function ChatPage(){
+
+  const dummy = useRef() 
+
   const messagesRef = firestore.collection('messages');
   const query = messagesRef.orderBy('createdAt').limit(25);
   
@@ -71,13 +75,16 @@ function ChatPage(){
       photoURL
     });
     setFormValue(''); 
+
+    dummy.current.scrollIntoView({ behavior: 'smooth'});
   }
 
   return(
     <>
-      <div>
+      <main>
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-      </div>
+        <div ref={dummy}></div>
+      </main>
 
       <form onSubmit={sendMessage}>
         <input value={formValue} onChange={(e) => setFormValue(e.target.value)}/>
