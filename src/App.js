@@ -4,7 +4,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { useRef } from 'react';
 import { useState } from 'react';
-
+import { ReactComponent as Logo } from './logo.svg';
 import {useAuthState, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
 
@@ -28,6 +28,7 @@ function App() {
   return (
     <div className="App">
       <header>
+        <Logo className='logo'/>
         <h1>ConnectInChat</h1>
         <SignOut />
       </header>
