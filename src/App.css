@@ -37,6 +37,12 @@ header {
   margin-right: 1rem;
 }
 
+.img:is(:hover,:focus){
+  height: 12vh;
+  width: 12vh;
+  transition: 0.2s all;
+}
+
 .sign-out {
   background-color: #dc3545;
   color: #fff;
@@ -46,9 +52,10 @@ header {
   cursor: pointer;
 }
 
-.sign-out:hover {
+.sign-out:is(:hover,:focus) {
   background-color: #d86b76;
   color: #000;
+  transition: all 0.2s;
 }
 
 main::-webkit-scrollbar {
@@ -60,7 +67,7 @@ main::-webkit-scrollbar-track {
 }
 
 main::-webkit-scrollbar-thumb {
-  background: #6649b8;
+  background: #007bff;
 }
 
 /* Section styles */
@@ -76,23 +83,22 @@ section {
 .sign-in {
   background-color: #fff;
   color: #000;
-  border: 1px solid #000;
+  font-size: 1rem;
+  font-weight: bolder;
+  border: #000 solid 0.2rem;
   padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
 }
 
-.sign-in:hover {
+.sign-in:is(:hover,:focus) {
+  border: #fff solid 0.2rem;
+  font-size: 1.1rem;
+  transition: all 0.2s;
   background-color: #000;
   color: #fff;
-}
-
-.sign-in svg {
-  height: 1.2rem;
-  width: 1.2rem;
-  margin-right: 0.5rem;
 }
 
 /* ChatPage styles */
@@ -125,12 +131,12 @@ main {
   flex-direction: row-reverse;
 }
 .message.sent p{
-  border: solid #20b2aa;
+  border: solid #36e036;
   border-radius: 1rem;
   margin-top: 0.5rem;
   margin-right: 0.5rem;
   align-self: flex-end;
-  background: #20b2aa;
+  background: #36e036;
 }
 
 .message img {
@@ -153,7 +159,55 @@ form {
   display: flex;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #000;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #000;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #000;
+}
+
+/* placeholder */
+input:focus::-webkit-input-placeholder {
+  position:fixed;
+  align-items: center;
+  font-size: large;
+  transition: all 0.2s;
+}
+
+/* Firefox < 19 */
+input:focus:-moz-placeholder {
+  position:fixed;
+  align-items: center;
+  font-size: large;
+  transition: all 0.2s;
+}
+
+/* Firefox > 19 */
+input:focus::-moz-placeholder {
+  position:fixed;
+  align-items: center;
+  font-size: large;
+  transition: all 0.2s;
+}
+
+/* Internet Explorer 10 */
+input:focus:-ms-input-placeholder {
+  position:fixed;
+  align-items: center;
+  font-size: large;
+  transition: all 0.2s;
+}
+
 input{
+  background-color: #007bff;
+  color: #000;
+  font-weight: bold;
   width: 100%;
   flex: 1;
   padding: 0.5rem;
@@ -172,7 +226,26 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:is(:hover,:focus) {
   background-color: #54a7ff;
+  transition: all 0.2s;
   color: #000;
+}
+
+.portfolio-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #4c7aaf;
+  color: #000;
+  font-size: 1rem;
+  font-weight: bolder;
+  border-radius: 1rem;
+  text-decoration: none;
+}
+
+.portfolio-button:is(:hover,:focus) {
+  color: #fff;
+  transition: all 0.2s;
+  background-color: #4CAF50;
+  font-size: 1.2rem;
 }

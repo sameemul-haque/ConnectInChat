@@ -48,7 +48,12 @@ function SignIn(){
   }
   
   return(
+    <>
     <button className="sign-in" style={{position:"relative",margin: "0 auto"}} onClick={signInWithGoogle}><FcGoogle/>&nbsp;Sign in with Google</button>
+    <footer style={{marginTop: "50vh", textAlign: "center"}}>
+      <a href="https://sameemul-haque.web.app" target="_blank" rel="noopener noreferrer" className="portfolio-button">My Portfolio</a>
+    </footer>
+    </>
   )
 }
 
@@ -59,7 +64,6 @@ function SignOut(){
 }
 
 function ChatPage(){
-
   const dummy = useRef() 
 
   const messagesRef = firestore.collection('messages');
@@ -91,22 +95,25 @@ function ChatPage(){
   return(
     <>
       <main>
-      {messages && messages.map(msg => (
-        <div 
-          key={msg.id} 
-          className={`message ${msg.readBy && msg.readBy.includes(auth.currentUser.uid) ? 'read' : 'unread'}`}
-          onClick={() => {
-            if (msg.readBy && !msg.readBy.includes(auth.currentUser.uid)) {
-              messagesRef.doc(msg.id).update({
-                readBy: firebase.firestore.FieldValue.arrayUnion(auth.currentUser.uid),
-              });
-            }
-          }}
-        >
-          <img src={msg.photoURL} alt="Profile" />
-          <p>{msg.text}</p>
-        </div>
-        ))}
+      {messages && messages.map(msg => {
+        const messageClass = msg.uid === auth.currentUser.uid ? 'sent' : 'received';
+        return (
+          <div 
+            key={msg.id} 
+            className={`message ${messageClass} ${msg.readBy && msg.readBy.includes(auth.currentUser.uid) ? 'read' : 'unread'}`}
+            onClick={() => {
+              if (msg.readBy && !msg.readBy.includes(auth.currentUser.uid)) {
+                messagesRef.doc(msg.id).update({
+                  readBy: firebase.firestore.FieldValue.arrayUnion(auth.currentUser.uid),
+                });
+              }
+            }}
+          >
+            <img src={msg.photoURL} alt="Profile" />
+            <p>{msg.text}</p>
+          </div>
+        )
+      })}
         <div ref={dummy}></div>
         <span ref={dummy}></span>
       </main>
