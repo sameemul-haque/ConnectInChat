@@ -4,6 +4,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { useRef } from 'react';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { ReactComponent as Logo } from './logo.svg';
 import {useAuthState, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
@@ -68,24 +69,44 @@ function ChatPage(){
 
   const [formValue, setFormValue] = useState('');
 
-  const sendMessage = async(e) => {console.log('HELLO WORDL')
+  const sendMessage = async(e) => {
     e.preventDefault();
     const {uid, photoURL} = auth.currentUser;
     await messagesRef.add({
       text: formValue,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       uid,
-      photoURL
+      photoURL,
+      readBy: [], 
     });
     setFormValue(''); 
 
-    dummy.current.scrollIntoView({ behavior: 'smooth'});
+    dummy.current.scrollIntoView({ behavior: 'smooth' });
   }
+
+  useEffect(() => {
+    dummy.current.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   return(
     <>
       <main>
-        {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+      {messages && messages.map(msg => (
+        <div 
+          key={msg.id} 
+          className={`message ${msg.readBy && msg.readBy.includes(auth.currentUser.uid) ? 'read' : 'unread'}`}
+          onClick={() => {
+            if (msg.readBy && !msg.readBy.includes(auth.currentUser.uid)) {
+              messagesRef.doc(msg.id).update({
+                readBy: firebase.firestore.FieldValue.arrayUnion(auth.currentUser.uid),
+              });
+            }
+          }}
+        >
+          <img src={msg.photoURL} alt="Profile" />
+          <p>{msg.text}</p>
+        </div>
+        ))}
         <div ref={dummy}></div>
         <span ref={dummy}></span>
       </main>
@@ -97,6 +118,7 @@ function ChatPage(){
     </>
   )
 }
+
 
 function ChatMessage(props){
   const {text, uid, photoURL} = props.message;
