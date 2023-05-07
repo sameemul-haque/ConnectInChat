@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { ReactComponent as Logo } from './logo.svg';
 import {useAuthState, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
+import { FcGoogle } from "react-icons/fc";
 
 firebase.initializeApp({
   apiKey: "AIzaSyC0EeYEz6RcXogSKMzGXNqLbN_JUWp1iYA",
@@ -46,7 +47,8 @@ function SignIn(){
   }
   
   return(
-    <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+    
+    <button className="sign-in" onClick={signInWithGoogle}><FcGoogle/>&nbsp;Sign in with Google</button>
   )
 }
 
