@@ -28,8 +28,8 @@ function App() {
   return (
     <div className="App">
       <header>
-        <Logo className='logo'/>
-        <h1>ConnectInChat</h1>
+        <h1><Logo style={{height: "3vh",minHeight: "50px"}}/>ConnectInChat</h1>
+        
         <SignOut />
       </header>
       <section>
@@ -52,7 +52,7 @@ function SignIn(){
 
 function SignOut(){
   return auth.currentUser && (
-    <button className="sign-out" onClick={()=>auth.signOut()}>Sign Out</button>
+    <button className="sign-out" onClick={()=>auth.signOut()}>SignOut</button>
   )
 }
 
@@ -91,7 +91,7 @@ function ChatPage(){
 
       <form onSubmit={sendMessage}>
         <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder='Enter your message' />
-        <button type="submit">➤</button>
+        <button type="submit" disabled={!formValue}>➤</button>
       </form>
     </>
   )
@@ -103,11 +103,12 @@ function ChatMessage(props){
   const messageClass = uid === auth.currentUser.uid ? 'sent': 'received';
 
   return(
-    <div className={'message ${messageClass}'}>
-      <img src={photoURL} />
+    <div className={`message ${messageClass}`}>
+      <img src={photoURL} alt="Profile" />
       <p>{text}</p>
     </div>
   )
 }
+
 
 export default App;

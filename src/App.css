@@ -7,15 +7,10 @@ body {
   max-width: 728px;
   margin: 0 auto;
 }
-.logo{
-  height: 10vh;
-  min-height: 50px;
-  position: fixed;
-  right: 0;
-}
+
 .App header {
   background-color: #181717;
-  height: 10vh;
+  height: 15vh;
   min-height: 50px;
   color: white;
   position: fixed;
@@ -112,8 +107,22 @@ button:disabled {
   margin: 0 auto;
 }
 
+.sign-out {
+  color: #000;
+  background: #fff;
+  border: solid 3px #000;
+  border-radius: 5px;
+}
 
-
+.sign-out:is(:hover,:focus){
+  color: #fff;
+  background: black;
+  font-size: small;
+  border: solid 3px #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
 
 ul, li {
   text-align: left;
@@ -132,21 +141,22 @@ p {
 }
 
 .message {
+  padding: 10px;
   display: flex;
   align-items: center;
 }
 
 
-.sent {
+.message.sent {
   flex-direction: row-reverse;
 }
 
-.sent p {
+.message.sent p {
   color: white;
   background: #0b93f6;
   align-self: flex-end;
 }
-.received p {
+.message.received p {
   background: #e5e5ea;
   color: black;
 }
