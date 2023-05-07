@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1><Logo style={{height: "3vh",minHeight: "50px"}}/>ConnectInChat</h1>
+      <Logo className='img'/>
         
         <SignOut />
       </header>
