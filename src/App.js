@@ -47,14 +47,13 @@ function SignIn(){
   }
   
   return(
-    
-    <button className="sign-in" onClick={signInWithGoogle}><FcGoogle/>&nbsp;Sign in with Google</button>
+    <button className="sign-in" style={{position:"relative",margin: "0 auto"}} onClick={signInWithGoogle}><FcGoogle/>&nbsp;Sign in with Google</button>
   )
 }
 
 function SignOut(){
   return auth.currentUser && (
-    <button className="sign-out" onClick={()=>auth.signOut()}>SignOut</button>
+    <button className="sign-out" onClick={()=>auth.signOut()}>Sign Out</button>
   )
 }
 
@@ -69,7 +68,7 @@ function ChatPage(){
 
   const [formValue, setFormValue] = useState('');
 
-  const sendMessage = async(e) => {
+  const sendMessage = async(e) => {console.log('HELLO WORDL')
     e.preventDefault();
     const {uid, photoURL} = auth.currentUser;
     await messagesRef.add({
