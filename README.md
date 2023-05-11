@@ -6,6 +6,7 @@
 - A single public chat room
 
 ---
+
 ### Languages and Tools used:
 <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="html" height="40"/> HTML
 &nbsp;
@@ -23,3 +24,15 @@
 &nbsp;
 <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" height="40"/> Figma
 &nbsp;
+---
+### Preview PC 
+
+https://github.com/sameemul-haque/ConnectInChat/assets/110324374/3d038308-c2a0-4cd2-b365-f0f551439a4c
+
+
+### Preview Mobile
+
+https://github.com/sameemul-haque/ConnectInChat/assets/110324374/e8b1412c-89f7-4dbd-955a-240c40934966
+
+
+
