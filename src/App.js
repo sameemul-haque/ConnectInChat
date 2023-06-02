@@ -17,13 +17,40 @@ function App() {
     <div className="App">
       <header>
         <Logo className="img" />
-
         <SignOut />
       </header>
-      <section>{user ? <ChatPage /> : <SignIn />}</section>
+      <section>
+        {user ? (
+          <UsernameChecker user={user}>
+            <ChatPage user={user} />
+          </UsernameChecker>
+        ) : (
+          <SignIn />
+        )}
+      </section>
     </div>
   );
 }
+
+function UsernameChecker({ user, children }) {
+  const [hasUsername, setHasUsername] = useState(false);
+
+  useEffect(() => {
+    const checkUsername = async () => {
+      const usernameSnapshot = await firestore
+        .collection("username")
+        .where("uid", "==", user.uid)
+        .get();
+      setHasUsername(!usernameSnapshot.empty);
+    };
+
+    checkUsername();
+  }, [user.uid]);
+
+  return hasUsername ? children : <UsernamePage user={user} />;
+}
+
+// The remaining components remain the same
 
 function SignIn() {
   const signInWithGoogle = () => {
@@ -65,7 +92,71 @@ function SignOut() {
   );
 }
 
-function ChatPage() {
+function UsernamePage({ user }) {
+  const [username, setUsername] = useState("");
+  const [usernameError, setUsernameError] = useState("");
+  const [usernameSet, setUsernameSet] = useState(false);
+
+  const updateUsername = async () => {
+    if (!username) {
+      setUsernameError("Please enter your username");
+      return;
+    }
+
+    const usernameSnapshot = await firestore
+      .collection("username")
+      .where("username", "==", username)
+      .get();
+
+    if (!usernameSnapshot.empty) {
+      setUsernameError("Username already exists");
+      return;
+    }
+
+    await firestore.collection("username").doc().set({
+      uid: user.uid,
+      username: username,
+    });
+
+    setUsernameError("");
+    setUsernameSet(true);
+  };
+
+  if (usernameSet) {
+    return <ChatPage user={user} />;
+  }
+
+  return (
+    <div className="username-page">
+      {usernameError ? (
+        <div className="username-popup">
+          <input
+            type="text"
+            placeholder="Enter your username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <button onClick={updateUsername}>Save</button>
+          <p>{usernameError}</p>
+        </div>
+      ) : (
+        <div className="username-popup">
+          <p>Welcome, {user.displayName}!</p>
+          <p>Please enter your username to continue:</p>
+          <input
+            type="text"
+            placeholder="Enter your username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <button onClick={updateUsername}>Save</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ChatPage({ user }) {
   const dummy = useRef();
 
   const messagesRef = firestore.collection("messages");
@@ -142,19 +233,6 @@ function ChatPage() {
         </button>
       </form>
     </>
-  );
-}
-
-function ChatMessage(props) {
-  const { text, uid, photoURL } = props.message;
-
-  const messageClass = uid === auth.currentUser.uid ? "sent" : "received";
-
-  return (
-    <div className={`message ${messageClass}`}>
-      <img src={photoURL} alt="Profile" />
-      <p>{text}</p>
-    </div>
   );
 }
 
