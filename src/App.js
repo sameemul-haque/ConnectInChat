@@ -161,6 +161,21 @@ function ChatPage({ user }) {
   const query = messagesRef.orderBy("createdAt");
 
   const [messages] = useCollectionData(query, { idField: "id" });
+  const [usernames, setUsernames] = useState({});
+
+  useEffect(() => {
+    const fetchUsernames = async () => {
+      const usernamesSnapshot = await firestore.collection("username").get();
+      const usernamesData = {};
+      usernamesSnapshot.forEach((doc) => {
+        const usernameData = doc.data();
+        usernamesData[usernameData.uid] = usernameData.username;
+      });
+      setUsernames(usernamesData);
+    };
+
+    fetchUsernames();
+  }, []);
 
   const [formValue, setFormValue] = useState("");
 
@@ -211,6 +226,7 @@ function ChatPage({ user }) {
                   }
                 }}
               >
+                <p className="username">{usernames[msg.uid]}</p> {}
                 <img src={msg.photoURL} alt="Profile" />
                 <p>{msg.text}</p>
               </div>
@@ -231,19 +247,6 @@ function ChatPage({ user }) {
         </button>
       </form>
     </>
-  );
-}
-
-function ChatMessage(props) {
-  const { text, uid, photoURL } = props.message;
-
-  const messageClass = uid === auth.currentUser.uid ? "sent" : "received";
-
-  return (
-    <div className={`message ${messageClass}`}>
-      <img src={photoURL} alt="Profile" />
-      <p>{text}</p>
-    </div>
   );
 }
 
