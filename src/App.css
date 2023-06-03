@@ -228,6 +228,47 @@ input::selection {
   color: #007bff;
 }
 
+.savebtn {
+  display: inline-block;
+  border-radius: 0.7rem;
+  background-color: #36e036;
+  border: none;
+  color: #000000;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bolder;
+  padding: 0.5rem;
+  width: 7rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 25px;
+}
+
+.savebtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.savebtn span:after {
+  content: "✓";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.5s;
+}
+
+.savebtn:hover span {
+  padding-right: 15px;
+}
+
+.savebtn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 button[type="submit"] {
   background-color: #007bff;
   color: #fff;

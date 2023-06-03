@@ -94,16 +94,22 @@ function UsernamePage({ user }) {
   const [username, setUsername] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [usernameSet, setUsernameSet] = useState(false);
-
   const updateUsername = async () => {
     if (!username) {
       setUsernameError("Please enter your username");
       return;
     }
 
+    if (username.length < 5) {
+      setUsernameError("Username must be at least 5 characters");
+      return;
+    }
+
+    const lowercaseUsername = username.toLowerCase();
+
     const usernameSnapshot = await firestore
       .collection("username")
-      .where("username", "==", username)
+      .where("username", "==", lowercaseUsername)
       .get();
 
     if (!usernameSnapshot.empty) {
@@ -113,7 +119,7 @@ function UsernamePage({ user }) {
 
     await firestore.collection("username").doc().set({
       uid: user.uid,
-      username: username,
+      username: lowercaseUsername,
     });
 
     setUsernameError("");
@@ -130,24 +136,30 @@ function UsernamePage({ user }) {
         <div className="username-popup">
           <input
             type="text"
-            placeholder="Enter your username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            style={{ textTransform: "lowercase" }}
           />
-          <button onClick={updateUsername}>Save</button>
-          <p>{usernameError}</p>
+          <button className="savebtn" onClick={updateUsername}>
+            Save
+          </button>
+          <p style={{ color: "#ffffff" }}>{usernameError}</p>
         </div>
       ) : (
         <div className="username-popup">
-          <p>Welcome, {user.displayName}!</p>
-          <p>Please enter your username to continue:</p>
+          <p style={{ color: "#ffffff" }}>Welcome, {user.displayName}!</p>
+          <p style={{ color: "#ffffff" }}>
+            Please enter your username to continue:
+          </p>
           <input
             type="text"
-            placeholder="Enter your username"
             value={username}
+            style={{ textTransform: "lowercase" }}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <button onClick={updateUsername}>Save</button>
+          <button className="savebtn" onClick={updateUsername}>
+            <span>Save</span>
+          </button>
         </div>
       )}
     </div>
