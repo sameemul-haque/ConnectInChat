@@ -150,13 +150,12 @@ main {
   padding: 0.5rem;
   border-radius: 0.25rem;
   font-size: 1rem;
-  max-width: 70%;
-  overflow-wrap: break-word;
 }
 
 .username {
   color: #ffffff;
   font-size: small;
+  padding-top: 5px;
 }
 
 form {
