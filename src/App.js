@@ -50,8 +50,6 @@ function UsernameChecker({ user, children }) {
   return hasUsername ? children : <UsernamePage user={user} />;
 }
 
-// The remaining components remain the same
-
 function SignIn() {
   const signInWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -160,7 +158,7 @@ function ChatPage({ user }) {
   const dummy = useRef();
 
   const messagesRef = firestore.collection("messages");
-  const query = messagesRef.orderBy("createdAt").limitToLast(25);
+  const query = messagesRef.orderBy("createdAt");
 
   const [messages] = useCollectionData(query, { idField: "id" });
 
@@ -233,6 +231,19 @@ function ChatPage({ user }) {
         </button>
       </form>
     </>
+  );
+}
+
+function ChatMessage(props) {
+  const { text, uid, photoURL } = props.message;
+
+  const messageClass = uid === auth.currentUser.uid ? "sent" : "received";
+
+  return (
+    <div className={`message ${messageClass}`}>
+      <img src={photoURL} alt="Profile" />
+      <p>{text}</p>
+    </div>
   );
 }
 
