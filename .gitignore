@@ -1,5 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# ignore all . files and . folders
+.*
+# Dont ignore .gitignore (this file)
+!/.gitignore
+
 # dependencies
 /node_modules
 /.pnp
@@ -24,5 +29,3 @@ src/firebase-config.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.firebase/hosting.cHVibGlj.cache
-.firebase/hosting.YnVpbGQ.cache
