@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +5,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.5;
   background-color: #111;
@@ -37,7 +36,7 @@ header {
   margin-right: 1rem;
 }
 
-.img:is(:hover,:focus){
+.img:is(:hover, :focus) {
   height: 12vh;
   width: 12vh;
   transition: 0.2s all;
@@ -52,7 +51,7 @@ header {
   cursor: pointer;
 }
 
-.sign-out:is(:hover,:focus) {
+.sign-out:is(:hover, :focus) {
   background-color: #d86b76;
   color: #000;
   transition: all 0.2s;
@@ -93,7 +92,7 @@ section {
   align-items: center;
 }
 
-.sign-in:is(:hover,:focus) {
+.sign-in:is(:hover, :focus) {
   border: #fff solid 0.2rem;
   font-size: 1.1rem;
   transition: all 0.2s;
@@ -117,7 +116,7 @@ main {
   margin: 0.5rem 0;
 }
 
-.message.received p{
+.message.received p {
   margin-top: 0.5rem;
   border: solid #e5e5e5;
   border-radius: 1rem;
@@ -130,7 +129,7 @@ main {
 .sent {
   flex-direction: row-reverse;
 }
-.message.sent p{
+.message.sent p {
   border: solid #36e036;
   border-radius: 1rem;
   margin-top: 0.5rem;
@@ -155,26 +154,34 @@ main {
   overflow-wrap: break-word;
 }
 
+.username {
+  color: #ffffff;
+  font-size: small;
+}
+
 form {
   display: flex;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #000;
   opacity: 1; /* Firefox */
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
   color: #000;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
+::-ms-input-placeholder {
+  /* Microsoft Edge */
   color: #000;
 }
 
 /* placeholder */
 input:focus::-webkit-input-placeholder {
-  position:fixed;
+  position: fixed;
   align-items: center;
   font-size: large;
   transition: all 0.2s;
@@ -182,7 +189,7 @@ input:focus::-webkit-input-placeholder {
 
 /* Firefox < 19 */
 input:focus:-moz-placeholder {
-  position:fixed;
+  position: fixed;
   align-items: center;
   font-size: large;
   transition: all 0.2s;
@@ -190,7 +197,7 @@ input:focus:-moz-placeholder {
 
 /* Firefox > 19 */
 input:focus::-moz-placeholder {
-  position:fixed;
+  position: fixed;
   align-items: center;
   font-size: large;
   transition: all 0.2s;
@@ -198,13 +205,13 @@ input:focus::-moz-placeholder {
 
 /* Internet Explorer 10 */
 input:focus:-ms-input-placeholder {
-  position:fixed;
+  position: fixed;
   align-items: center;
   font-size: large;
   transition: all 0.2s;
 }
 
-input{
+input {
   background-color: #007bff;
   color: #000;
   font-weight: bold;
@@ -222,7 +229,6 @@ input::selection {
   color: #007bff;
 }
 
-
 button[type="submit"] {
   background-color: #007bff;
   color: #fff;
@@ -232,7 +238,7 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:is(:hover,:focus) {
+button[type="submit"]:is(:hover, :focus) {
   background-color: #54a7ff;
   transition: all 0.2s;
   color: #000;
@@ -249,9 +255,9 @@ button[type="submit"]:is(:hover,:focus) {
   text-decoration: none;
 }
 
-.portfolio-button:is(:hover,:focus) {
+.portfolio-button:is(:hover, :focus) {
   color: #fff;
   transition: all 0.2s;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   font-size: 1.2rem;
 }

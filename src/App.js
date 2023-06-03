@@ -226,8 +226,8 @@ function ChatPage({ user }) {
                   }
                 }}
               >
-                <p className="username">{usernames[msg.uid]}</p> {}
                 <img src={msg.photoURL} alt="Profile" />
+                <div className="username">{usernames[msg.uid]}</div> {}
                 <p>{msg.text}</p>
               </div>
             );
