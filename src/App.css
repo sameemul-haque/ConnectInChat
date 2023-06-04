@@ -138,6 +138,11 @@ main {
   background: #36e036;
 }
 
+.message.sent div.username {
+  align-self: flex-end;
+  margin-right: 0.5rem;
+}
+
 .message img {
   height: 2rem;
   width: 2rem;
@@ -150,6 +155,7 @@ main {
   padding: 0.5rem;
   border-radius: 0.25rem;
   font-size: 1rem;
+  max-width: 30rem;
 }
 
 .username {
