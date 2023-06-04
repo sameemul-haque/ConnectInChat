@@ -241,10 +241,15 @@ function ChatPage({ user }) {
                 }}
               >
                 <img src={msg.photoURL} alt="Profile" />
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <div className="username">{usernames[msg.uid]}</div>
-                  <p>{msg.text}</p>
-                  <p className="message-time">{messageTime}</p>
+                <div
+                  className="msgbox"
+                  style={{ display: "flex", flexDirection: "column" }}
+                >
+                  <div className="usernameandtime">
+                    <div className="username">{usernames[msg.uid]}</div>
+                    <div className="message-time">{messageTime}</div>
+                  </div>
+                  <p>{msg.text}</p>{" "}
                 </div>
               </div>
             );
