@@ -4,7 +4,7 @@
 - <a href="https://connectinchat.web.app/"> connectinchat.web.app </a>
 - Sign in using Google account
 - A single public chat room
-
+- added username and message-time
 ---
 
 ### Languages and Tools used:
