@@ -165,31 +165,39 @@ main {
 .message-time {
   color: #555555;
   font-size: small;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+}
+
+.message.sent div.username {
+  margin-left: 3rem;
+}
+
+.message.received div.username {
+  margin-right: 3rem;
 }
 
 .message.sent div.usernameandtime {
   display: flex;
   flex-direction: row-reverse;
+  padding-left: 15px;
   padding-right: 15px;
+  justify-content: space-between;
 }
 
 .message.received div.usernameandtime {
   display: flex;
   flex-direction: row;
   padding-left: 15px;
+  padding-right: 15px;
+  justify-content: space-between;
 }
 
 .message.sent div.msgbox {
-  width: 25rem;
   background: #36e036;
   border: solid #36e036;
   border-radius: 1rem;
 }
 
 .message.received div.msgbox {
-  width: 25rem;
   background: #e5e5ea;
   border: solid #e5e5ea;
   border-radius: 1rem;
