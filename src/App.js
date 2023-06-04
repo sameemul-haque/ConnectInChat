@@ -221,14 +221,10 @@ function ChatPage({ user }) {
               msg.uid === auth.currentUser.uid ? "sent" : "received";
             const messageTime =
               msg.createdAt &&
-              msg.createdAt
-                .toDate()
-                .toLocaleTimeString([], {
-                  hour: "numeric",
-                  minute: "2-digit",
-                  hour12: true,
-                })
-                .replace(/^0(?=:)/, "12");
+              msg.createdAt.toDate().toLocaleTimeString([], {
+                hour: "numeric",
+                minute: "2-digit",
+              });
             return (
               <div
                 key={msg.id}

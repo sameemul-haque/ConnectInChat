@@ -147,8 +147,11 @@ main {
   padding: 0.5rem;
   border-radius: 0.25rem;
   font-size: 1rem;
-  max-width: 30rem;
   margin-top: -0.5rem;
+}
+
+.message div.msgbox {
+  max-width: 65%;
 }
 
 .username {
@@ -162,26 +165,26 @@ main {
 }
 
 .message.sent div.username {
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 
 .message.received div.username {
-  margin-right: 3rem;
+  margin-right: 2rem;
 }
 
 .message.sent div.usernameandtime {
   display: flex;
   flex-direction: row-reverse;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   justify-content: space-between;
 }
 
 .message.received div.usernameandtime {
   display: flex;
   flex-direction: row;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   justify-content: space-between;
 }
 
