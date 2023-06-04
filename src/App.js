@@ -218,7 +218,15 @@ function ChatPage({ user }) {
             const messageClass =
               msg.uid === auth.currentUser.uid ? "sent" : "received";
             const messageTime =
-              msg.createdAt && msg.createdAt.toDate().toLocaleTimeString();
+              msg.createdAt &&
+              msg.createdAt
+                .toDate()
+                .toLocaleTimeString([], {
+                  hour: "numeric",
+                  minute: "2-digit",
+                  hour12: true,
+                })
+                .replace(/^0(?=:)/, "12");
             return (
               <div
                 key={msg.id}
@@ -249,7 +257,7 @@ function ChatPage({ user }) {
                     <div className="username">{usernames[msg.uid]}</div>
                     <div className="message-time">{messageTime}</div>
                   </div>
-                  <p>{msg.text}</p>{" "}
+                  <p>{msg.text}</p>
                 </div>
               </div>
             );
