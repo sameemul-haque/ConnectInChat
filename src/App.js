@@ -217,6 +217,8 @@ function ChatPage({ user }) {
           messages.map((msg) => {
             const messageClass =
               msg.uid === auth.currentUser.uid ? "sent" : "received";
+            const messageTime =
+              msg.createdAt && msg.createdAt.toDate().toLocaleTimeString();
             return (
               <div
                 key={msg.id}
@@ -240,8 +242,9 @@ function ChatPage({ user }) {
               >
                 <img src={msg.photoURL} alt="Profile" />
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <div className="username">{usernames[msg.uid]}</div> {}
-                  <p>{msg.text}</p>{" "}
+                  <div className="username">{usernames[msg.uid]}</div>
+                  <p>{msg.text}</p>
+                  <p className="message-time">{messageTime}</p>
                 </div>
               </div>
             );
