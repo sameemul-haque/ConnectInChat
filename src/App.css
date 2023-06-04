@@ -117,7 +117,6 @@ main {
 }
 
 .message.received p {
-  margin-top: 0.5rem;
   border: solid #e5e5e5;
   border-radius: 1rem;
   align-self: flex-start;
@@ -133,7 +132,6 @@ main {
 .message.sent p {
   border: solid #36e036;
   border-radius: 1rem;
-  margin-top: 0.5rem;
   margin-right: 0.5rem;
   align-self: flex-end;
   background: #36e036;
@@ -160,15 +158,13 @@ main {
 }
 
 .username {
-  color: #ffffff;
+  color: #555555;
   font-size: small;
-  padding-top: 5px;
 }
 
 .message-time {
-  color: #ffffff;
+  color: #555555;
   font-size: small;
-  padding-top: 5px;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
 }
@@ -176,11 +172,27 @@ main {
 .message.sent div.usernameandtime {
   display: flex;
   flex-direction: row-reverse;
+  padding-right: 15px;
 }
 
 .message.received div.usernameandtime {
   display: flex;
   flex-direction: row;
+  padding-left: 15px;
+}
+
+.message.sent div.msgbox {
+  width: 25rem;
+  background: #36e036;
+  border: solid #36e036;
+  border-radius: 1rem;
+}
+
+.message.received div.msgbox {
+  width: 25rem;
+  background: #e5e5ea;
+  border: solid #e5e5ea;
+  border-radius: 1rem;
 }
 
 form {
