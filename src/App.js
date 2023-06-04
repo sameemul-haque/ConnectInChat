@@ -102,8 +102,19 @@ function UsernamePage({ user }) {
       return;
     }
 
-    if (username.length < 5) {
-      setUsernameError("Username must be at least 5 characters");
+    if (username.length < 5 || username.length > 11) {
+      setUsernameError("Username must be between 5 and 11 characters long");
+      return;
+    }
+
+    if (!/^[a-zA-Z0-9][a-zA-Z0-9._]*$/.test(username)) {
+      if (/^[._]/.test(username)) {
+        setUsernameError("Username cannot start with a dot or an underscore");
+      } else {
+        setUsernameError(
+          "Username can only contain letters, numbers, dot, and underscore"
+        );
+      }
       return;
     }
 
