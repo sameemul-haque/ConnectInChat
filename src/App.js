@@ -67,14 +67,16 @@ function SignIn() {
         &nbsp;Sign in with Google
       </button>
       <footer style={{ marginTop: "50vh", textAlign: "center" }}>
-        <a
-          href="https://sameemul-haque.web.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="portfolio-button"
-        >
-          My Portfolio
-        </a>
+        <button className="githubbtn">
+          {" "}
+          <a
+            href="https://github.com/sameemul-haque/ConnectInChat/commits/master"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="githubtext">Github</span>{" "}
+          </a>
+        </button>
       </footer>
     </>
   );
