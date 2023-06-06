@@ -234,6 +234,21 @@ function ChatPage({ user }) {
 
   const formatMessageDate = (createdAt) => {
     if (!createdAt) return "";
+    const currentDate = new Date().toLocaleDateString();
+    const messageDate = createdAt.toDate().toLocaleDateString();
+
+    if (currentDate === messageDate) {
+      return "Today";
+    }
+
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayDate = yesterday.toLocaleDateString();
+
+    if (yesterdayDate === messageDate) {
+      return "Yesterday";
+    }
+
     const options = { day: "numeric", month: "long", year: "numeric" };
     return createdAt.toDate().toLocaleDateString([], options);
   };
