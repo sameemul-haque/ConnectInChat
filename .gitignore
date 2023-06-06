@@ -13,8 +13,9 @@
 # testing
 /coverage
 
-#config
+#firebase
 src/firebase-config.js
+firebase-debug.log
 
 # production
 /build
