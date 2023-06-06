@@ -186,7 +186,6 @@ function ChatPage({ user }) {
 
   const [messages] = useCollectionData(query, { idField: "id" });
   const [usernames, setUsernames] = useState({});
-  const [currentDate, setCurrentDate] = useState(null);
 
   useEffect(() => {
     const fetchUsernames = async () => {
@@ -278,7 +277,11 @@ function ChatPage({ user }) {
 
             return (
               <>
-                {showDate && <div className="message-date">{messageDate}</div>}
+                {showDate && (
+                  <div className="message-date">
+                    <span>{messageDate}</span>
+                  </div>
+                )}
                 <div
                   key={msg.id}
                   className={`message ${messageClass} ${
