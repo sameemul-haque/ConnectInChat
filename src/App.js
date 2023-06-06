@@ -262,50 +262,41 @@ function ChatPage({ user }) {
             }
 
             return (
-              <div
-                key={msg.id}
-                className={`message ${messageClass} ${
-                  msg.readBy && msg.readBy.includes(auth.currentUser.uid)
-                    ? "read"
-                    : "unread"
-                }`}
-                onClick={() => {
-                  if (
-                    msg.readBy &&
-                    !msg.readBy.includes(auth.currentUser.uid)
-                  ) {
-                    messagesRef.doc(msg.id).update({
-                      readBy: firebase.firestore.FieldValue.arrayUnion(
-                        auth.currentUser.uid
-                      ),
-                    });
-                  }
-                }}
-              >
-                {showDate && (
-                  <div
-                    className="message-date"
-                    style={{
-                      color: "white",
-                      textAlign: "center",
-                      marginTop: "10px",
-                    }}
-                  >
-                    {messageDate}
-                  </div>
-                )}
-                <img src={msg.photoURL} alt="Profile" />
+              <>
+                {showDate && <div className="message-date">{messageDate}</div>}
                 <div
-                  className="msgbox"
-                  style={{ display: "flex", flexDirection: "column" }}
+                  key={msg.id}
+                  className={`message ${messageClass} ${
+                    msg.readBy && msg.readBy.includes(auth.currentUser.uid)
+                      ? "read"
+                      : "unread"
+                  }`}
+                  onClick={() => {
+                    if (
+                      msg.readBy &&
+                      !msg.readBy.includes(auth.currentUser.uid)
+                    ) {
+                      messagesRef.doc(msg.id).update({
+                        readBy: firebase.firestore.FieldValue.arrayUnion(
+                          auth.currentUser.uid
+                        ),
+                      });
+                    }
+                  }}
                 >
-                  <div className="usernameandtime">
-                    <div className="username">{usernames[msg.uid]}</div>
-                    <div className="message-time">{messageTime}</div>
+                  <img src={msg.photoURL} alt="Profile" />
+                  <div
+                    className="msgbox"
+                    style={{ display: "flex", flexDirection: "column" }}
+                  >
+                    <div className="usernameandtime">
+                      <div className="username">{usernames[msg.uid]}</div>
+                      <div className="message-time">{messageTime}</div>
+                    </div>
+                    <p>{msg.text}</p>
                   </div>
-                  <p>{msg.text}</p>
                 </div>
-              </div>
+              </>
             );
           })}
         <div ref={dummy}></div>
