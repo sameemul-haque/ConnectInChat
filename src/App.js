@@ -234,8 +234,8 @@ function ChatPage({ user }) {
 
   const formatMessageDate = (createdAt) => {
     if (!createdAt) return "";
-    const messageDate = createdAt.toDate().toLocaleDateString();
-    return messageDate;
+    const options = { day: "numeric", month: "long", year: "numeric" };
+    return createdAt.toDate().toLocaleDateString([], options);
   };
 
   return (
