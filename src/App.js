@@ -181,12 +181,12 @@ function UsernamePage({ user }) {
 
 function ChatPage({ user }) {
   const dummy = useRef();
-
   const messagesRef = firestore.collection("messages");
   const query = messagesRef.orderBy("createdAt");
 
   const [messages] = useCollectionData(query, { idField: "id" });
   const [usernames, setUsernames] = useState({});
+  const [currentDate, setCurrentDate] = useState(null);
 
   useEffect(() => {
     const fetchUsernames = async () => {
@@ -223,19 +223,44 @@ function ChatPage({ user }) {
     dummy.current.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  const formatMessageTime = (createdAt) => {
+    if (!createdAt) return "";
+    const messageTime = createdAt.toDate().toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "2-digit",
+    });
+    return messageTime;
+  };
+
+  const formatMessageDate = (createdAt) => {
+    if (!createdAt) return "";
+    const messageDate = createdAt.toDate().toLocaleDateString();
+    return messageDate;
+  };
+
   return (
     <>
       <main>
         {messages &&
-          messages.map((msg) => {
+          messages.map((msg, index) => {
             const messageClass =
               msg.uid === auth.currentUser.uid ? "sent" : "received";
-            const messageTime =
-              msg.createdAt &&
-              msg.createdAt.toDate().toLocaleTimeString([], {
-                hour: "numeric",
-                minute: "2-digit",
-              });
+            const messageTime = formatMessageTime(msg.createdAt);
+            const messageDate = formatMessageDate(msg.createdAt);
+
+            let showDate = false;
+            if (index === 0) {
+              showDate = true;
+            } else {
+              const previousMessage = messages[index - 1];
+              const previousMessageDate = formatMessageDate(
+                previousMessage.createdAt
+              );
+              if (messageDate !== previousMessageDate) {
+                showDate = true;
+              }
+            }
+
             return (
               <div
                 key={msg.id}
@@ -257,6 +282,18 @@ function ChatPage({ user }) {
                   }
                 }}
               >
+                {showDate && (
+                  <div
+                    className="message-date"
+                    style={{
+                      color: "white",
+                      textAlign: "center",
+                      marginTop: "10px",
+                    }}
+                  >
+                    {messageDate}
+                  </div>
+                )}
                 <img src={msg.photoURL} alt="Profile" />
                 <div
                   className="msgbox"
