@@ -108,7 +108,14 @@ main {
   overflow-y: auto;
   padding-right: 1rem;
 }
-
+.message-date {
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #121212;
+  font-size: small;
+  border-radius: 0.5rem;
+}
 .message {
   display: flex;
   align-items: center;
