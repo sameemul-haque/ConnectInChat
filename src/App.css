@@ -202,8 +202,8 @@ main {
 }
 
 .message.sent div.msgbox {
-  background: #36e036;
-  border: solid #36e036;
+  background: #62dd62;
+  border: solid #62dd62;
   border-radius: 1rem;
   margin-right: 0.5rem;
 }
@@ -280,14 +280,14 @@ input {
 }
 
 input::selection {
-  background-color: #36e036;
+  background-color: #62dd62;
   color: #007bff;
 }
 
 .savebtn {
   display: inline-block;
   border-radius: 0.7rem;
-  background-color: #36e036;
+  background-color: #62dd62;
   border: none;
   color: #000000;
   text-align: center;

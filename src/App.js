@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { ReactComponent as Logo } from "./logo.svg";
 import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { FcGoogle } from "react-icons/fc";
+import { Icon } from "@iconify/react";
 import { auth } from "./firebase-config.js";
 import { firestore } from "./firebase-config";
 
@@ -63,7 +63,7 @@ function SignIn() {
         style={{ position: "relative", margin: "0 auto" }}
         onClick={signInWithGoogle}
       >
-        <FcGoogle />
+        <Icon icon="devicon:google" />
         &nbsp;Sign in with Google
       </button>
       <footer style={{ marginTop: "50vh", textAlign: "center" }}>
@@ -308,7 +308,17 @@ function ChatPage({ user }) {
                     style={{ display: "flex", flexDirection: "column" }}
                   >
                     <div className="usernameandtime">
-                      <div className="username">{usernames[msg.uid]}</div>
+                      <div className="username">
+                        {usernames[msg.uid]}{" "}
+                        <Icon
+                          style={{
+                            color: "#007bff",
+                            fontSize: "small",
+                            paddingTop: 1,
+                          }}
+                          icon="material-symbols:verified"
+                        />
+                      </div>
                       <div className="message-time">{messageTime}</div>
                     </div>
                     <p>{msg.text}</p>
