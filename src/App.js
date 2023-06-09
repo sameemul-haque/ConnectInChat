@@ -5,7 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import SignIn from "./components/SignIn";
 import UsernameChecker from "./components/UsernameChecker";
 import ChatPage from "./components/ChatPage";
-import UserMenu from "./components/UserMenu";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <header>
         <Logo className="img" />
-        <UserMenu user={user} />
+        <Navbar user={user} />
       </header>
       <section>
         {user ? (
