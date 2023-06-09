@@ -1,5 +1,5 @@
 import firebase from "firebase/compat/app";
-import { FcGoogle } from "react-icons";
+import { FcGoogle } from "react-icons/fc";
 import { auth } from "../firebase-config.js";
 
 function SignIn() {

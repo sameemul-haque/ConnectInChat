@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { Icon } from "@iconify/react";
+import { MdVerified } from "react-icons/md";
 import { auth } from "../firebase-config.js";
 import { firestore } from "../firebase-config";
 
@@ -138,7 +138,7 @@ function ChatPage({ user }) {
                     <div className="usernameandtime">
                       <div className="username">
                         {usernames[msg.uid]}{" "}
-                        <Icon
+                        <MdVerified
                           style={{
                             color: "#007bff",
                             fontSize: "small",
