@@ -12,7 +12,6 @@ body {
 }
 
 .App {
-  max-width: 800px;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -40,21 +39,6 @@ header {
   height: 12vh;
   width: 12vh;
   transition: 0.2s all;
-}
-
-.sign-out {
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-}
-
-.sign-out:is(:hover, :focus) {
-  background-color: #d86b76;
-  color: #000;
-  transition: all 0.2s;
 }
 
 main::-webkit-scrollbar {
@@ -279,9 +263,12 @@ input {
   font-size: 1rem;
 }
 
+input:focus {
+  background-color: #5896eb;
+}
+
 input::selection {
-  background-color: #62dd62;
-  color: #007bff;
+  background-color: #00ff7b;
 }
 
 .savebtn {
@@ -338,45 +325,4 @@ button[type="submit"]:is(:hover, :focus) {
   background-color: #54a7ff;
   transition: all 0.2s;
   color: #000;
-}
-
-.githubbtn {
-  display: inline-block;
-  border-radius: 0.7rem;
-  background-color: #4c7aaf;
-  border: none;
-  color: #000000;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: bolder;
-  padding: 0.5rem;
-  width: 8rem;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin-top: 25px;
-}
-
-.githubbtn span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.githubbtn span:after {
-  content: "</>";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -30px;
-  transition: 0.5s;
-}
-
-.githubbtn:hover span {
-  padding-right: 30px;
-}
-
-.githubbtn:hover span:after {
-  opacity: 1;
-  right: 0;
 }

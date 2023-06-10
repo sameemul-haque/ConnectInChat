@@ -29,8 +29,12 @@ function Navbar() {
               </li>
               {SidebarData.map((item, index) => {
                 return (
-                  <li key={index} className={item.cName}>
-                    <div onClick={item.cFunction}>
+                  <li
+                    key={index}
+                    className={item.cName}
+                    onClick={item.cFunction}
+                  >
+                    <div>
                       {item.icon}
                       <span>{item.title}</span>
                     </div>
