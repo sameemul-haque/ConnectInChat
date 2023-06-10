@@ -1,5 +1,6 @@
 import firebase from "firebase/compat/app";
 import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 import { auth } from "../firebase-config.js";
 
 function SignIn() {
@@ -20,13 +21,14 @@ function SignIn() {
       </button>
       <footer style={{ marginTop: "50vh", textAlign: "center" }}>
         <button className="githubbtn">
-          {" "}
           <a
             href="https://github.com/sameemul-haque/ConnectInChat/commits/master"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="githubtext">Github</span>{" "}
+            <p>
+              <FaGithub /> Github Code
+            </p>
           </a>
         </button>
       </footer>

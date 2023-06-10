@@ -326,3 +326,29 @@ button[type="submit"]:is(:hover, :focus) {
   transition: all 0.2s;
   color: #000;
 }
+
+.githubbtn {
+  border: none;
+  border-radius: 1rem;
+  background-color: #4c7aaf;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bolder;
+  padding: 0.5rem;
+  width: 10rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 25px;
+}
+
+.githubbtn p {
+  color: #000;
+  text-align: center;
+}
+
+.githubbtn a {
+  text-decoration: none;
+}
+.githubbtn:is(:hover, :focus) {
+  background-color: #5896eb;
+}
