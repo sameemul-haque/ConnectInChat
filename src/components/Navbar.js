@@ -3,6 +3,7 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./Sidebar";
 import "../css/Navbar.css";
+import { auth } from "../firebase-config.js";
 import { IconContext } from "react-icons";
 
 function Navbar() {
@@ -11,34 +12,36 @@ function Navbar() {
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <>
-      <IconContext.Provider value={{ color: "#fff" }}>
-        <div className="navbar" onClick={showSidebar}>
-          <div to="#" className="menu-bars">
-            <FaIcons.FaBars />
+    auth.currentUser && (
+      <>
+        <IconContext.Provider value={{ color: "#fff" }}>
+          <div className="navbar" onClick={showSidebar}>
+            <div className="menu-bars">
+              <FaIcons.FaBars />
+            </div>
           </div>
-        </div>
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-          <ul className="nav-menu-items" onClick={showSidebar}>
-            <li className="navbar-toggle">
-              <div to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
-              </div>
-            </li>
-            {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <div to={item.path}>
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      </IconContext.Provider>
-    </>
+          <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+            <ul className="nav-menu-items" onClick={showSidebar}>
+              <li className="navbar-toggle">
+                <div className="menu-bars">
+                  <AiIcons.AiOutlineClose />
+                </div>
+              </li>
+              {SidebarData.map((item, index) => {
+                return (
+                  <li key={index} className={item.cName}>
+                    <div onClick={item.cFunction}>
+                      {item.icon}
+                      <span>{item.title}</span>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </IconContext.Provider>
+      </>
+    )
   );
 }
 
