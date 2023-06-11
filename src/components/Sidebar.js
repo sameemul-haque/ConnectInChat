@@ -1,7 +1,5 @@
 import React from "react";
 import * as FaIcons from "react-icons/fa";
-import SignOut from "../components/SignOut";
-import UserSettings from "../pages/UserSettings";
 
 export const SidebarData = [
   {
@@ -18,6 +16,5 @@ export const SidebarData = [
     title: "Signout",
     icon: <FaIcons.FaSignOutAlt />,
     cName: "nav-text",
-    cFunction: SignOut,
   },
 ];

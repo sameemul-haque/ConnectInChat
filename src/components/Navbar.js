@@ -5,11 +5,15 @@ import { SidebarData } from "./Sidebar";
 import "../css/Navbar.css";
 import { auth } from "../firebase-config.js";
 import { IconContext } from "react-icons";
+import UserSettings from "../pages/UserSettings";
+import SignOut from "../components/SignOut";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+  const toggleSettings = () => setShowSettings(!showSettings);
 
   return (
     auth.currentUser && (
@@ -32,7 +36,13 @@ function Navbar() {
                   <li
                     key={index}
                     className={item.cName}
-                    onClick={item.cFunction}
+                    onClick={() => {
+                      if (item.title === "Settings") {
+                        toggleSettings();
+                      } else if (item.title === "Signout") {
+                        SignOut();
+                      }
+                    }}
                   >
                     <div>
                       {item.icon}
@@ -44,6 +54,11 @@ function Navbar() {
             </ul>
           </nav>
         </IconContext.Provider>
+        {showSettings && (
+          <div className="settings-popup">
+            <UserSettings onClose={toggleSettings} />
+          </div>
+        )}
       </>
     )
   );
