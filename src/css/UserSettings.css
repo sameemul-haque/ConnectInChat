@@ -1,0 +1,14 @@
+div.UserSettings {
+  color: azure;
+}
+.close-button-settings {
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 2.5rem;
+  border: solid #ffffff 0.2rem;
+  border-radius: 0.7rem;
+  margin-top: 2rem;
+  margin-right: 2rem;
+  cursor: pointer;
+}
