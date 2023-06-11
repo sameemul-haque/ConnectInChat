@@ -14,16 +14,20 @@ function ChatPage({ user }) {
 
   const [messages] = useCollectionData(query, { idField: "id" });
   const [usernames, setUsernames] = useState({});
+  const [isVerified, setIsVerified] = useState([]);
 
   useEffect(() => {
     const fetchUsernames = async () => {
       const usernamesSnapshot = await firestore.collection("username").get();
       const usernamesData = {};
+      const isVerifiedData = {};
       usernamesSnapshot.forEach((doc) => {
         const usernameData = doc.data();
         usernamesData[usernameData.uid] = usernameData.username;
+        isVerifiedData[usernameData.uid] = usernameData.verified;
       });
       setUsernames(usernamesData);
+      setIsVerified(isVerifiedData);
     };
 
     fetchUsernames();
@@ -102,7 +106,7 @@ function ChatPage({ user }) {
                 showDate = true;
               }
             }
-
+            const isUserVerified = isVerified[msg.uid] === "true";
             return (
               <>
                 {showDate && (
@@ -138,14 +142,16 @@ function ChatPage({ user }) {
                     <div className="usernameandtime">
                       <div className="username">
                         {usernames[msg.uid]}{" "}
-                        <MdVerified
-                          style={{
-                            color: "#007bff",
-                            fontSize: "small",
-                            paddingTop: 1,
-                          }}
-                          icon="material-symbols:verified"
-                        />
+                        {isUserVerified && (
+                          <MdVerified
+                            style={{
+                              color: "#007bff",
+                              fontSize: "small",
+                              paddingTop: 1,
+                            }}
+                            icon="material-symbols:verified"
+                          />
+                        )}
                       </div>
                       <div className="message-time">{messageTime}</div>
                     </div>
