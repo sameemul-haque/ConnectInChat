@@ -1,6 +1,7 @@
 import React from "react";
 import * as FaIcons from "react-icons/fa";
 import SignOut from "../components/SignOut";
+import UserSettings from "../pages/UserSettings";
 
 export const SidebarData = [
   {
