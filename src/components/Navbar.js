@@ -8,7 +8,7 @@ import { IconContext } from "react-icons";
 import UserSettings from "../pages/UserSettings";
 import SignOut from "../components/SignOut";
 
-function Navbar() {
+function Navbar({ user }) {
   const [sidebar, setSidebar] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
 
@@ -56,7 +56,7 @@ function Navbar() {
         </IconContext.Provider>
         {showSettings && (
           <div className="settings-popup">
-            <UserSettings onClose={toggleSettings} />
+            <UserSettings onClose={toggleSettings} user={user} />
           </div>
         )}
       </>
