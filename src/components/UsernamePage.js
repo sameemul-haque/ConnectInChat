@@ -43,6 +43,7 @@ function UsernamePage({ user }) {
     await firestore.collection("username").doc().set({
       uid: user.uid,
       username: lowercaseUsername,
+      verified: false,
     });
 
     setUsernameError("");
