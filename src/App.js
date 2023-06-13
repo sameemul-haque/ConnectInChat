@@ -449,7 +449,15 @@ function UserSettings({ onClose, user }) {
     }
 
     const lowercaseUsername = newUsername.toLowerCase();
+    const usernameSnapshot = await firestore
+      .collection("username")
+      .where("username", "==", lowercaseUsername)
+      .get();
 
+    if (!usernameSnapshot.empty) {
+      setUsernameError("Username already exists");
+      return;
+    }
     await firestore
       .collection("username")
       .doc(user.uid)
