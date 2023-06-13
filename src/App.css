@@ -430,7 +430,7 @@ button[type="submit"]:is(:hover, :focus) {
   background-color: #1a83ff;
 }
 
-span {
+.navbar-span {
   margin-left: 16px;
 }
 /* usersettings */

@@ -401,7 +401,7 @@ function Navbar({ user }) {
                   >
                     <div>
                       {item.icon}
-                      <span>{item.title}</span>
+                      <span className="navbar-span">{item.title}</span>
                     </div>
                   </li>
                 );
