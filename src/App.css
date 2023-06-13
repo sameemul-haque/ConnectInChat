@@ -352,3 +352,114 @@ button[type="submit"]:is(:hover, :focus) {
 .githubbtn:is(:hover, :focus) {
   background-color: #5896eb;
 }
+/* Navbar */
+.navbar {
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.menu-bars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-size: 2rem;
+  background: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-menu {
+  background-color: #212121;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  border-radius: 1rem;
+  right: -100%;
+  top: 0;
+  transition: 850ms;
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+
+.nav-menu.active {
+  right: 0;
+  top: 0;
+  transition: 350ms;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+  color: #f5f5f5;
+  font-size: 18px;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.nav-text:hover {
+  background-color: #1a83ff;
+}
+
+.nav-menu-items {
+  width: 100%;
+}
+
+.navbar-toggle {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  border-radius: 1rem;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar-toggle:hover {
+  background-color: #1a83ff;
+}
+
+span {
+  margin-left: 16px;
+}
+/* usersettings */
+div.settings-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 97.5%;
+  height: 97%;
+  background-color: rgb(40, 37, 53);
+  border: rgb(40, 37, 53) 5px solid;
+  border-radius: 25px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  z-index: 999; /* Ensure the popup appears above other elements */
+}
+
+div.UserSettings {
+  color: azure;
+}
+
+.close-button-settings {
+  text-align: end;
+  font-size: 2.5rem;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+}
+.close-button-btn {
+  border: solid #ffffff 0.2rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
