@@ -8,6 +8,7 @@ import * as AiIcons from "react-icons/ai";
 import * as FaIcons from "react-icons/fa";
 import * as FcIcons from "react-icons/fc";
 import { IconContext } from "react-icons";
+import Swal from "sweetalert2";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { MdVerified } from "react-icons/md";
 
@@ -462,6 +463,11 @@ function UserSettings({ onClose, user }) {
       .collection("username")
       .doc(user.uid)
       .update({ username: lowercaseUsername });
+    Swal.fire({
+      title: "Your username has been updated successfully.",
+      icon: "success",
+      confirmButtonText: "OK",
+    });
   };
 
   return (
@@ -494,7 +500,6 @@ function UserSettings({ onClose, user }) {
           <span>Update</span>
         </button>
       </div>
-      {/* <h2 style={{ textAlign: "center" }}>COMING SOON</h2> */}
     </div>
   );
 }
