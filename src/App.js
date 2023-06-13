@@ -368,7 +368,7 @@ function Navbar({ user }) {
 
   const showSidebar = () => setSidebar(!sidebar);
   const toggleSettings = () => setShowSettings(!showSettings);
-
+  const reloadPage = () => window.location.reload();
   return (
     auth.currentUser && (
       <>
@@ -410,7 +410,7 @@ function Navbar({ user }) {
         </IconContext.Provider>
         {showSettings && (
           <div className="settings-popup">
-            <UserSettings onClose={toggleSettings} user={user} />
+            <UserSettings onClose={(toggleSettings, reloadPage)} user={user} />
           </div>
         )}
       </>
@@ -462,8 +462,6 @@ function UserSettings({ onClose, user }) {
       .collection("username")
       .doc(user.uid)
       .update({ username: lowercaseUsername });
-    onClose();
-    window.location.reload();
   };
 
   return (
