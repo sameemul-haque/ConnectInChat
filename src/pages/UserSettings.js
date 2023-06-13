@@ -54,14 +54,20 @@ function UserSettings({ onClose, user }) {
 
   return (
     <div className="UserSettings">
+      <p className="close-button-settings">
+        <AiIcons.AiOutlineClose
+          className="close-button-btn"
+          onClick={onClose}
+        />
+      </p>
       <h1
         style={{
           textTransform: "uppercase",
           textAlign: "center",
-          marginTop: "3rem",
         }}
       >
-        User Settings
+        <span style={{ verticalAlign: "middle" }}>User Settings </span>
+        <AiIcons.AiOutlineSetting style={{ verticalAlign: "middle" }} />
       </h1>
       {/* <div className="username-input">
         <label htmlFor="username">Username:</label>
@@ -77,10 +83,6 @@ function UserSettings({ onClose, user }) {
         </button>
       </div> */}
       <h2 style={{ textAlign: "center" }}>COMING SOON</h2>
-      <AiIcons.AiOutlineClose
-        className="close-button-settings"
-        onClick={onClose}
-      />
     </div>
   );
 }
