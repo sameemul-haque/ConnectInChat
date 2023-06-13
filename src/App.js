@@ -455,6 +455,7 @@ function UserSettings({ onClose, user }) {
       .doc(user.uid)
       .update({ username: lowercaseUsername });
     onClose();
+    window.location.reload();
   };
 
   return (
@@ -487,7 +488,7 @@ function UserSettings({ onClose, user }) {
           <span>Update</span>
         </button>
       </div>
-      <h2 style={{ textAlign: "center" }}>COMING SOON</h2>
+      {/* <h2 style={{ textAlign: "center" }}>COMING SOON</h2> */}
     </div>
   );
 }
