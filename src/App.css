@@ -128,11 +128,6 @@ main {
   align-self: flex-end;
 }
 
-.message.sent div.username {
-  align-self: flex-end;
-  margin-right: 0.5rem;
-}
-
 .message img {
   height: 2rem;
   width: 2rem;
@@ -162,11 +157,12 @@ main {
 }
 
 .message.sent div.username {
-  margin-left: 2rem;
+  margin-left: 1rem;
+  align-self: flex-end;
 }
 
 .message.received div.username {
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 
 .message.sent div.usernameandtime {
