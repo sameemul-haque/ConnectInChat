@@ -26,9 +26,9 @@
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 1rem;
   border-radius: 1rem;
   right: -100%;
+  top: 0;
   transition: 850ms;
   margin-right: 1rem;
   margin-top: 1rem;
