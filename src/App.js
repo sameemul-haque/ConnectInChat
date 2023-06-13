@@ -475,13 +475,13 @@ function UserSettings({ onClose, user }) {
         <span style={{ verticalAlign: "middle" }}>User Settings </span>
         <AiIcons.AiOutlineSetting style={{ verticalAlign: "middle" }} />
       </h1>
-      <div className="username-input">
-        <label htmlFor="username">Username:</label>
+      <div className="username-input" style={{ padding: 20 }}>
         <input
           type="text"
           id="username"
           value={newUsername}
           onChange={handleUsernameChange}
+          placeholder="Username"
         />
         {usernameError && <p className="error">{usernameError}</p>}{" "}
         <button className="savebtn" onClick={handleUpdateUsername}>
