@@ -295,11 +295,10 @@ function UsernamePage({ user }) {
       setUsernameError("Username already exists");
       return;
     }
-
-    await firestore.collection("username").doc().set({
+    await firestore.collection("username").doc(user.uid).set({
       uid: user.uid,
       username: lowercaseUsername,
-      verified: false,
+      verified: "false",
     });
 
     setUsernameError("");
@@ -420,53 +419,43 @@ function Navbar({ user }) {
 }
 
 function UserSettings({ onClose, user }) {
-  // const [newUsername, setNewUsername] = useState("");
-  // const [usernameError, setUsernameError] = useState("");
+  const [newUsername, setNewUsername] = useState("");
+  const [usernameError, setUsernameError] = useState("");
 
-  // const handleUsernameChange = (e) => {
-  //   setNewUsername(e.target.value.toLowerCase());
-  // };
+  const handleUsernameChange = (e) => {
+    setNewUsername(e.target.value.toLowerCase());
+  };
 
-  // const handleUpdateUsername = async () => {
-  //   if (!newUsername) {
-  //     setUsernameError("Please enter a username");
-  //     return;
-  //   }
+  const handleUpdateUsername = async () => {
+    if (!newUsername) {
+      setUsernameError("Please enter a username");
+      return;
+    }
 
-  //   if (newUsername.length < 5 || newUsername.length > 11) {
-  //     setUsernameError("Username must be between 5 and 11 characters long");
-  //     return;
-  //   }
+    if (newUsername.length < 5 || newUsername.length > 11) {
+      setUsernameError("Username must be between 5 and 11 characters long");
+      return;
+    }
 
-  //   if (!/^[a-zA-Z0-9][a-zA-Z0-9._]*$/.test(newUsername)) {
-  //     if (/^[._]/.test(newUsername)) {
-  //       setUsernameError("Username cannot start with a dot or an underscore");
-  //     } else {
-  //       setUsernameError(
-  //         "Username can only contain letters, numbers, dot, and underscore"
-  //       );
-  //     }
-  //     return;
-  //   }
+    if (!/^[a-zA-Z0-9][a-zA-Z0-9._]*$/.test(newUsername)) {
+      if (/^[._]/.test(newUsername)) {
+        setUsernameError("Username cannot start with a dot or an underscore");
+      } else {
+        setUsernameError(
+          "Username can only contain letters, numbers, dot, and underscore"
+        );
+      }
+      return;
+    }
 
-  //   const lowercaseUsername = newUsername.toLowerCase();
+    const lowercaseUsername = newUsername.toLowerCase();
 
-  //   const usernameSnapshot = await firestore
-  //     .collection("username")
-  //     .where("username", "==", lowercaseUsername)
-  //     .get();
-
-  //   if (!usernameSnapshot.empty) {
-  //     setUsernameError("Username already exists");
-  //     return;
-  //   }
-
-  //   await firestore
-  //     .collection("username")
-  //     .doc(user.uid)
-  //     .update({ username: lowercaseUsername });
-  //   onClose();
-  // };
+    await firestore
+      .collection("username")
+      .doc(user.uid)
+      .update({ username: lowercaseUsername });
+    onClose();
+  };
 
   return (
     <div className="UserSettings">
@@ -485,7 +474,7 @@ function UserSettings({ onClose, user }) {
         <span style={{ verticalAlign: "middle" }}>User Settings </span>
         <AiIcons.AiOutlineSetting style={{ verticalAlign: "middle" }} />
       </h1>
-      {/* <div className="username-input">
+      <div className="username-input">
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -497,7 +486,7 @@ function UserSettings({ onClose, user }) {
         <button className="savebtn" onClick={handleUpdateUsername}>
           <span>Update</span>
         </button>
-      </div> */}
+      </div>
       <h2 style={{ textAlign: "center" }}>COMING SOON</h2>
     </div>
   );
