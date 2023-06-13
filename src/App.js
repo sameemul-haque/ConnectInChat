@@ -1,15 +1,13 @@
 import "./App.css";
 import { ReactComponent as Logo } from "./logo.svg";
-import { auth } from "./firebase-config.js";
+import { auth, firestore } from "./firebase-config.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import React, { useState, useEffect, useRef } from "react";
 import firebase from "firebase/compat/app";
 import * as AiIcons from "react-icons/ai";
 import * as FaIcons from "react-icons/fa";
+import * as FcIcons from "react-icons/fc";
 import { IconContext } from "react-icons";
-import { firestore } from "./firebase-config";
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { MdVerified } from "react-icons/md";
 
@@ -48,7 +46,7 @@ function SignIn() {
         style={{ position: "relative", margin: "0 auto" }}
         onClick={signInWithGoogle}
       >
-        <FcGoogle />
+        <FcIcons.FcGoogle />
         &nbsp;Sign in with Google
       </button>
       <footer style={{ marginTop: "50vh", textAlign: "center" }}>
@@ -59,7 +57,7 @@ function SignIn() {
             rel="noopener noreferrer"
           >
             <p>
-              <FaGithub /> Github Code
+              <FaIcons.FaGithub /> Github Code
             </p>
           </a>
         </button>
