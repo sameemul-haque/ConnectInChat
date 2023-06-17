@@ -28,11 +28,3 @@
 &nbsp;&nbsp;
 
 ---
-
-### Preview PC
-
-https://github.com/sameemul-haque/ConnectInChat/assets/110324374/3d038308-c2a0-4cd2-b365-f0f551439a4c
-
-### Preview Mobile
-
-https://github.com/sameemul-haque/ConnectInChat/assets/110324374/e8b1412c-89f7-4dbd-955a-240c40934966
