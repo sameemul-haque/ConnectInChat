@@ -168,7 +168,7 @@ function ChatPage({ user }) {
                 showDate = true;
               }
             }
-            const isUserVerified = isVerified[msg.uid] === "true";
+            const isUserVerified = isVerified[msg.uid] === true;
             return (
               <>
                 {showDate && (
@@ -299,7 +299,7 @@ function UsernamePage({ user }) {
     await firestore.collection("username").doc(user.uid).set({
       uid: user.uid,
       username: lowercaseUsername,
-      verified: "false",
+      verified: false,
     });
 
     setUsernameError("");
@@ -464,10 +464,52 @@ function UserSettings({ onClose, user }) {
       .doc(user.uid)
       .update({ username: lowercaseUsername });
     Swal.fire({
-      title: "Your username has been updated successfully.",
+      titleText: "Your username has been updated successfully.",
       icon: "success",
       confirmButtonText: "OK",
     });
+  };
+
+  const [toggleOn, setToggleOn] = useState(false);
+
+  useEffect(() => {
+    var verCheck = firestore.collection("username").doc(user.uid);
+    verCheck.get().then((doc) => {
+      var verValue = doc.data()["verified"];
+      console.log("Verification:", verValue);
+      setToggleOn(verValue);
+    });
+  }, [user.uid]);
+
+  const handleToggleChange = () => {
+    setToggleOn(!toggleOn);
+  };
+  const verificationUpdate = () => {
+    firestore
+      .collection("username")
+      .doc(user.uid)
+      .update({
+        verified: toggleOn,
+      })
+      .then(() => {
+        if (toggleOn === true) {
+          Swal.fire({
+            titleText:
+              "Congratulations! Your verification process was successful.",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+        }
+        if (toggleOn === false) {
+          Swal.fire({
+            titleText: "Verification mark removed.",
+            confirmButtonText: "OK",
+          });
+        }
+      })
+      .catch((error) => {
+        console.log("Error updating toggle value:", error);
+      });
   };
 
   return (
@@ -502,9 +544,16 @@ function UserSettings({ onClose, user }) {
       </div>
       <div className="settings-box">
         <div style={{ display: "flex", alignItems: "center" }}>
-          <span className="ver-mark-span">Verification Mark</span>
+          <span className="ver-mark-span">Verification</span>
           <div class="toggler">
-            <input id="toggler-1" name="toggler-1" type="checkbox" value="1" />
+            <input
+              id="toggler-1"
+              name="toggler-1"
+              type="checkbox"
+              value="1"
+              checked={toggleOn}
+              onChange={handleToggleChange}
+            />
             <label for="toggler-1">
               <svg
                 class="toggler-on"
@@ -541,7 +590,7 @@ function UserSettings({ onClose, user }) {
             </label>
           </div>
         </div>
-        <button className="savebtn" onClick={null}>
+        <button className="savebtn" onClick={verificationUpdate}>
           <span>Update</span>
         </button>
       </div>
