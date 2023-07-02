@@ -577,3 +577,29 @@ div.UserSettings {
     height: 20px;
   }
 }
+/* preloader */
+#preloader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 97.5%;
+  height: 97%;
+  z-index: 999999;
+  background-color: rgb(40, 37, 53);
+  border: rgb(40, 37, 53) 5px solid;
+  border-radius: 25px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-image: url(./preloader.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#preloader-none {
+  opacity: 0;
+}
+
+#no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}

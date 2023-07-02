@@ -25,13 +25,28 @@ function App() {
     </div>
   );
 }
+
+function Preloader(props) {
+  return <div id={props.load ? "preloader" : "preloader-none"}></div>;
+}
 function PublicChat() {
   const [user] = useAuthState(auth);
+  const [load, upadateLoad] = useState(true);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      upadateLoad(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
-    <UsernameChecker user={user}>
-      <ChatPage user={user} />
-    </UsernameChecker>
+    <>
+      <Preloader load={load} />
+      <UsernameChecker user={user}>
+        <ChatPage user={user} />
+      </UsernameChecker>
+    </>
   );
 }
 function SignIn() {
