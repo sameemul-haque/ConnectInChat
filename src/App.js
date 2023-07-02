@@ -160,6 +160,17 @@ function ChatPage({ user }) {
     const options = { day: "numeric", month: "long", year: "numeric" };
     return createdAt.toDate().toLocaleDateString([], options);
   };
+  const getUsernameColor = (username) => {
+    if (username === "ConnectInChat") {
+      return {
+        color: "#006acc",
+        fontWeight: 750,
+      };
+    }
+    return {
+      color: "#555555",
+    };
+  };
 
   return (
     <>
@@ -218,7 +229,9 @@ function ChatPage({ user }) {
                   >
                     <div className="usernameandtime">
                       <div className="username">
-                        {usernames[msg.uid]}{" "}
+                        <span style={getUsernameColor(usernames[msg.uid])}>
+                          {usernames[msg.uid]}
+                        </span>
                         {isUserVerified && (
                           <MdVerified
                             style={{
