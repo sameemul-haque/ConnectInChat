@@ -4,6 +4,7 @@
 - <a href="https://connectinchat.web.app/"> connectinchat.web.app </a>
 - Sign in using Google account
 - A single public chat room
+- added preloader
 - added username, message-time, message-date and user verification
 
 ---
