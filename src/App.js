@@ -11,6 +11,7 @@ import { IconContext } from "react-icons";
 import Swal from "sweetalert2";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { MdVerified } from "react-icons/md";
+import Linkify from "react-linkify";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -245,7 +246,9 @@ function ChatPage({ user }) {
                       </div>
                       <div className="message-time">{messageTime}</div>
                     </div>
-                    <p>{msg.text}</p>
+                    <Linkify>
+                      <p>{msg.text}</p>
+                    </Linkify>
                   </div>
                 </div>
               </>

@@ -11,6 +11,7 @@
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
     "react-icons": "^4.9.0",
+    "react-linkify": "^1.0.0-alpha",
     "react-scripts": "5.0.1",
     "react-sidebar": "^3.0.2",
     "sweetalert2": "^11.7.12",
