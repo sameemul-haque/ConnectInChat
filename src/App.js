@@ -70,7 +70,7 @@ function SignIn() {
       <footer style={{ marginTop: "50vh", textAlign: "center" }}>
         <button className="githubbtn">
           <a
-            href="https://github.com/sameemul-haque/ConnectInChat/commits/master"
+            href="https://github.com/sameemul-haque/ConnectInChat/"
             target="_blank"
             rel="noopener noreferrer"
           >
