@@ -22,7 +22,7 @@ function App() {
         <Logo className="img" />
         <Navbar user={user} />
       </header>
-      <section>{user ? <PublicChat /> : <SignIn />}</section>
+      <section>{user ? <ChatHome /> : <SignIn />}</section>
     </div>
   );
 }
@@ -30,7 +30,7 @@ function App() {
 function Preloader(props) {
   return <div id={props.load ? "preloader" : "preloader-none"}></div>;
 }
-function PublicChat() {
+function ChatHome() {
   const [user] = useAuthState(auth);
   const [load, upadateLoad] = useState(true);
 
@@ -45,7 +45,8 @@ function PublicChat() {
     <>
       <Preloader load={load} />
       <UsernameChecker user={user}>
-        <ChatPage user={user} />
+        <SideChats />
+        <PublicChat user={user} />
       </UsernameChecker>
     </>
   );
@@ -85,7 +86,10 @@ function SignIn() {
 function SignOut() {
   return auth.signOut();
 }
-function ChatPage({ user }) {
+
+function SideChats() {}
+
+function PublicChat({ user }) {
   const dummy = useRef();
   const messagesRef = firestore.collection("messages");
   const query = messagesRef.orderBy("createdAt");
@@ -338,7 +342,7 @@ function UsernamePage({ user }) {
   };
 
   if (usernameSet) {
-    return <ChatPage user={user} />;
+    return <PublicChat user={user} />;
   }
 
   return (

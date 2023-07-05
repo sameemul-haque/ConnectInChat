@@ -1,4 +1,22 @@
-# ConnectInChat
+<!-- PROJECT LOGO -->
+
+<div align="center">
+    <img src="src/logo.svg" alt="Logo" width="100" height="100">
+  <h3 align="center">ConnectInChat</h3>
+
+  <p align="center">
+   A real-time chat app created using react and firebase
+    <br />
+    <br />
+   <a href="https://connectinchat.web.app/">View Demo</a>
+    ·
+    <a href="https://github.com/sameemul-haque/ConnectInChat/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/sameemul-haque/ConnectInChat/issues">Request Feature</a>
+  </p>
+</div>
+
+---
 
 - A real-time chat app created using react and firebase
 - <a href="https://connectinchat.web.app/"> connectinchat.web.app </a>
@@ -18,7 +36,7 @@
 <img src="https://upload.vectorlogo.zone/logos/javascript/images/239ec8a4-163e-4792-83b6-3f6d96911757.svg" alt="javascript" height="40"/>Javascript
 &nbsp;&nbsp;
 <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="reactjs" height="40"/>React
-&nbsp;&nbsp;
+&nbsp;&nbsp;<br/>
 <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" height="40"/> Firebase
 &nbsp;&nbsp;
 <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" height="40"/>Git
