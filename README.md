@@ -8,12 +8,9 @@
    A real-time chat app created using react and firebase
     <br />
     <br />
-   <a href="https://connectinchat.web.app/">View Demo</a>
-    ·
-    <a href="https://github.com/sameemul-haque/ConnectInChat/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/sameemul-haque/ConnectInChat/issues">Request Feature</a>
-  </p>
+<a href="https://connectinchat.web.app/"><img src="https://img.shields.io/badge/VIEW%20DEMO-203354?style=for-the-badge"></a>&nbsp;
+<a href="https://github.com/sameemul-haque/ConnectInChat/issues"><img src="https://img.shields.io/badge/REPORT%20BUG-203354?style=for-the-badge"></a>&nbsp;
+<a href="https://github.com/sameemul-haque/ConnectInChat/issues"><img src="https://img.shields.io/badge/REQUEST%20FEATURES-203354?style=for-the-badge"></a>&nbsp;</p>
 </div>
 
 ---
