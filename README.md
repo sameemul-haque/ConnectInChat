@@ -32,7 +32,7 @@
 ![Firebase](https://img.shields.io/badge/FIREBASE-FFCA28?style=for-the-badge&logo=firebase&logoColor=333333 "Firebase")
 ![Git](https://img.shields.io/badge/GIT-F05032?style=for-the-badge&logo=git&logoColor=ffffff "Git")
 ![Github](https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github "Github")
-![Figma](https://img.shields.io/badge/FIGMA-A259FF?style=for-the-badge&logo=figma&logoColor=1ABCFE&labelColor=F24E1E "Figma")
 ![VS Code](https://img.shields.io/badge/VS%20CODE-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=ffffff "Visual Studio Code")
+![Figma](https://img.shields.io/badge/FIGMA-171717?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3LjY3OCA3LjY4IiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiPjxwYXRoIGQ9Ik0yLjU2IDcuNjhBMS4yOCAxLjI4IDAgMCAwIDMuODQgNi40VjUuMTJIMi41NmExLjI4IDEuMjggMCAwIDAgMCAyLjU2eiIgZmlsbD0iIzBhY2Y4MyIvPjxwYXRoIGQ9Ik0xLjI4IDMuODRhMS4yOCAxLjI4IDAgMCAxIDEuMjgtMS4yOGgxLjI4djIuNTZIMi41NmExLjI4IDEuMjggMCAwIDEtMS4yOC0xLjI4eiIgZmlsbD0iI2EyNTlmZiIvPjxwYXRoIGQ9Ik0xLjI4IDEuMjhBMS4yOCAxLjI4IDAgMCAxIDIuNTU5IDBoMS4yOHYyLjU2SDIuNTZhMS4yOCAxLjI4IDAgMCAxLTEuMjgtMS4yOHoiIGZpbGw9IiNmMjRlMWUiLz48cGF0aCBkPSJNMy44NCAwaDEuMjhhMS4yOCAxLjI4IDAgMCAxIDAgMi41NkgzLjg0eiIgZmlsbD0iI2ZmNzI2MiIvPjxwYXRoIGQ9Ik02LjQgMy44NGExLjI4IDEuMjggMCAwIDEtMi41NiAwIDEuMjggMS4yOCAwIDAgMSAyLjU2IDB6IiBmaWxsPSIjMWFiY2ZlIi8+PC9zdmc+ "Figma")
 
 ---
