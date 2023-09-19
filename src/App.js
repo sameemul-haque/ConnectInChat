@@ -68,7 +68,7 @@ function SignIn() {
         &nbsp;Sign in with Google
       </button>
       <footer style={{ marginTop: "50vh", textAlign: "center" }}>
-        <button className="githubbtn">
+        <button className="githubbtn" style={{marginRight:10}}>
           <a
             href="https://github.com/sameemul-haque/ConnectInChat/"
             target="_blank"
@@ -76,6 +76,17 @@ function SignIn() {
           >
             <p>
               <FaIcons.FaGithub /> Github Code
+            </p>
+          </a>
+        </button>
+        <button className="githubbtn" style={{marginLeft:10}}>
+          <a
+            href="https://sameemul-haque.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <p>
+              <FaIcons.FaGlobe /> Portfolio
             </p>
           </a>
         </button>
@@ -392,6 +403,16 @@ const SidebarData = [
     cName: "nav-text",
   },
   {
+    title: "Portfolio",
+    icon: <FaIcons.FaGlobe />,
+    cName: "nav-text",
+  },
+  {
+    title: "Github",
+    icon: <FaIcons.FaGithub />,
+    cName: "nav-text",
+  },
+  {
     title: "Signout",
     icon: <FaIcons.FaSignOutAlt />,
     cName: "nav-text",
@@ -429,8 +450,15 @@ function Navbar({ user }) {
                     onClick={() => {
                       if (item.title === "Settings") {
                         toggleSettings();
-                      } else if (item.title === "Signout") {
+                      }
+                       else if (item.title === "Signout") {
                         SignOut();
+                      }
+                      else if (item.title === "Portfolio") {
+                        window.location.href="https://sameemul-haque.vercel.app/"
+                      }
+                      else if (item.title === "Github") {
+                        window.location.href="https://github.com/sameemul-haque/connectinchat"
                       }
                     }}
                   >
