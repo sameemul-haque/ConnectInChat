@@ -131,17 +131,26 @@ function PublicChat({ user }) {
   const sendMessage = async (e) => {
     e.preventDefault();
     const { uid, photoURL } = auth.currentUser;
-    await messagesRef.add({
+    const messageData = {
       text: formValue,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       uid,
       photoURL,
       readBy: [],
+      id: '', // Add the 'id' field
+    };
+  
+    const docRef = await messagesRef.add(messageData);
+    
+    // Update the 'id' field with the document ID
+    await docRef.update({
+      id: docRef.id,
     });
+  
     setFormValue("");
-
     dummy.current.scrollIntoView({ behavior: "smooth" });
   };
+  
 
   useEffect(() => {
     dummy.current.scrollIntoView({ behavior: "smooth" });
@@ -188,6 +197,7 @@ function PublicChat({ user }) {
     };
   };
 
+  
   return (
     <>
       <main>
@@ -197,6 +207,13 @@ function PublicChat({ user }) {
               msg.uid === auth.currentUser.uid ? "sent" : "received";
             const messageTime = formatMessageTime(msg.createdAt);
             const messageDate = formatMessageDate(msg.createdAt);
+            const deleteMessage = async (messageId) => {
+              try {
+                await messagesRef.doc(messageId).delete();
+              } catch (error) {
+                console.error("Error deleting message:", error);
+              }
+            };
 
             let showDate = false;
             if (index === 0) {
@@ -243,6 +260,7 @@ function PublicChat({ user }) {
                     className="msgbox"
                     style={{ display: "flex", flexDirection: "column" }}
                   >
+                    
                     <div className="usernameandtime">
                       <div className="username">
                         <span style={getUsernameColor(usernames[msg.uid])}>
@@ -259,11 +277,34 @@ function PublicChat({ user }) {
                           />
                         )}
                       </div>
-                      <div className="message-time">{messageTime}</div>
+                      <div className="message-time">
+                        {/* <AiIcons.AiOutlineMore className="moreicon" /> */}
+                        {msg.uid === auth.currentUser.uid && (
+                          <AiIcons.AiOutlineDelete
+                          className="delete-button"
+                          onClick={() => 
+                            Swal.fire({
+                              title: 'Are you sure?',
+                              text: "You won't be able to revert this!",
+                              icon: 'warning',
+                              showCancelButton: true,
+                              confirmButtonColor: '#3085d6',
+                              cancelButtonColor: '#d33',
+                              confirmButtonText: 'Yes, delete it!'
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                deleteMessage(msg.id)
+                              }
+                            })
+                          } />
+                        )}
+                        {messageTime}
+                      </div>
                     </div>
                     <Linkify>
                       <p>{msg.text}</p>
                     </Linkify>
+
                   </div>
                 </div>
               </>
