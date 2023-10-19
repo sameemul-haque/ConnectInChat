@@ -172,6 +172,8 @@ main {
 .message.sent div.usernameandtime {
   display: flex;
   flex-direction: row-reverse;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   justify-content: space-between;
 }
 
@@ -186,6 +188,7 @@ main {
 .delete-button{
   margin-left: 0.2rem;
   margin-top: 0.15rem;
+  margin-left: -0.25rem;
 }
 
 .delete-button:hover{
