@@ -153,6 +153,11 @@ main {
 .message-time {
   color: #555555;
   font-size: small;
+  display: flex;
+}
+
+.message.received .message-time{
+  flex-direction: row-reverse;
 }
 
 .message.sent div.username {
@@ -167,13 +172,20 @@ main {
 .message.sent div.usernameandtime {
   display: flex;
   flex-direction: row-reverse;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
   justify-content: space-between;
+}
+
+.moreicon{
+  margin-top: 0.15rem;
+}
+
+.moreicon:hover{
+  color: #007bff;
 }
 
 .delete-button{
   margin-left: 0.2rem;
+  margin-top: 0.15rem;
 }
 
 .delete-button:hover{

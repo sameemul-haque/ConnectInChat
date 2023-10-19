@@ -260,6 +260,7 @@ function PublicChat({ user }) {
                     className="msgbox"
                     style={{ display: "flex", flexDirection: "column" }}
                   >
+                    
                     <div className="usernameandtime">
                       <div className="username">
                         <span style={getUsernameColor(usernames[msg.uid])}>
@@ -276,14 +277,22 @@ function PublicChat({ user }) {
                           />
                         )}
                       </div>
-                      <div className="message-time">{messageTime}</div>
+                      <div className="message-time">
+                        {/* <AiIcons.AiOutlineMore className="moreicon" /> */}
+                        {msg.uid === auth.currentUser.uid && (
+                          <AiIcons.AiOutlineDelete
+                          className="delete-button"
+                          onClick={() => 
+                            deleteMessage(msg.id)
+                          } />
+                        )}
+                        {messageTime}
+                      </div>
                     </div>
                     <Linkify>
                       <p>{msg.text}</p>
                     </Linkify>
-                    {msg.uid === auth.currentUser.uid && (
-                      <AiIcons.AiOutlineDelete className="delete-button" onClick={() => deleteMessage(msg.id)} />
-                    )}
+
                   </div>
                 </div>
               </>
