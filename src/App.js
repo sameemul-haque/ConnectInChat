@@ -131,17 +131,26 @@ function PublicChat({ user }) {
   const sendMessage = async (e) => {
     e.preventDefault();
     const { uid, photoURL } = auth.currentUser;
-    await messagesRef.add({
+    const messageData = {
       text: formValue,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       uid,
       photoURL,
       readBy: [],
+      id: '', // Add the 'id' field
+    };
+  
+    const docRef = await messagesRef.add(messageData);
+    
+    // Update the 'id' field with the document ID
+    await docRef.update({
+      id: docRef.id,
     });
+  
     setFormValue("");
-
     dummy.current.scrollIntoView({ behavior: "smooth" });
   };
+  
 
   useEffect(() => {
     dummy.current.scrollIntoView({ behavior: "smooth" });
@@ -188,6 +197,7 @@ function PublicChat({ user }) {
     };
   };
 
+  
   return (
     <>
       <main>
@@ -197,6 +207,13 @@ function PublicChat({ user }) {
               msg.uid === auth.currentUser.uid ? "sent" : "received";
             const messageTime = formatMessageTime(msg.createdAt);
             const messageDate = formatMessageDate(msg.createdAt);
+            const deleteMessage = async (messageId) => {
+              try {
+                await messagesRef.doc(messageId).delete();
+              } catch (error) {
+                console.error("Error deleting message:", error);
+              }
+            };
 
             let showDate = false;
             if (index === 0) {
@@ -264,6 +281,9 @@ function PublicChat({ user }) {
                     <Linkify>
                       <p>{msg.text}</p>
                     </Linkify>
+                    {msg.uid === auth.currentUser.uid && (
+                      <AiIcons.AiOutlineDelete className="delete-button" onClick={() => deleteMessage(msg.id)} />
+                    )}
                   </div>
                 </div>
               </>

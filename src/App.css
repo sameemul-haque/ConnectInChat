@@ -172,6 +172,14 @@ main {
   justify-content: space-between;
 }
 
+.delete-button{
+  margin-left: 0.2rem;
+}
+
+.delete-button:hover{
+  color: #007bff;
+}
+
 .message.received div.usernameandtime {
   display: flex;
   flex-direction: row;
