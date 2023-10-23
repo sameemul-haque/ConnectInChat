@@ -17,7 +17,6 @@ body {
 }
 
 /* Header styles */
-
 header {
   background-color: rgb(40, 37, 53);
   border: rgb(40, 37, 53) 5px solid;
@@ -35,26 +34,19 @@ header {
   margin-right: 1rem;
 }
 
-.img:is(:hover, :focus) {
-  height: 12vh;
-  width: 12vh;
-  transition: 0.2s all;
-}
-
-main::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 0.25rem;
 }
 
-main::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   background: #1e1e24;
 }
 
-main::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background: #007bff;
 }
 
 /* Section styles */
-
 section {
   background-color: rgb(40, 37, 53);
   border: rgb(40, 37, 53) 5px solid;
@@ -62,30 +54,172 @@ section {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   padding: 1rem;
 }
-
-.sign-in {
-  background-color: #fff;
-  color: #000;
+.githubbtn {
+  background-color: #181825;
+  text-align: center;
   font-size: 1rem;
   font-weight: bolder;
-  border: #000 solid 0.2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  padding: 0.5rem;
+  width: 8rem;
+  transition: all 0.5s;
   cursor: pointer;
+  margin-top: 25px;
+  border: 3px solid #1e1e2e;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 16px 0 #7f849c0c, 0 6px 20px 0 #7f849c15;
+  transition: transform 0.2s ease;  
+  &:hover {
+    background-color: #11111b;
+    transform: scale(1.05);
+    border-color: #181825;
+  } 
+}
+
+.githubbtn a {
+  text-decoration: none;
+  justify-content: center;
+  color: #fff;
+  display: flex;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* sign-in button */
+:root {
+  --base-colour: #313244;
+  --move-colour: #fff;
+}
+
+.button--toggle {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  clip-path: inset(0px, 0px, 0px, 0px);
+  outline: none;
+  padding: 3px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #000;
+  box-shadow: 0 8px 16px 0 #7f849c0c, 0 6px 20px 0 #7f849c15;
+  transition: transform 0.2s ease;   
+  &:hover {
+    transform: scale(1.05);
+  } 
+}
+.button--toggled .animating {
+  background-size: 100% 100%;
+  background: linear-gradient(
+    0deg,
+    var(--base-colour) 40%,
+    var(--move-colour) 50%,
+    var(--base-colour) 60%
+  );
+  animation: rotation 1s linear infinite;
+}
+.button--toggled .innerAnimating {
+  height: 150%;
+  width: 50%;
+  background: var(--base-colour);
+}
+
+.button--text {
+  opacity: 1;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  padding: 15px;
+  background-color: #181825;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.animating {
+  border-radius: 5px;
+  z-index: 0;
+  height: 500%;
+  width: 300%;
   display: flex;
   align-items: center;
+  position: absolute;
 }
 
-.sign-in:is(:hover, :focus) {
-  border: #fff solid 0.2rem;
-  font-size: 1.1rem;
-  transition: all 0.2s;
-  background-color: #000;
-  color: #fff;
+.moving {
+  z-index: 0;
+  height: 400px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  background-size: 400% 400%;
+  background: linear-gradient(
+    0deg,
+    var(--base-colour) 40%,
+    var(--move-colour) 50%,
+    var(--base-colour) 60%
+  );
+  animation: rotation 0.5s ease-in-out infinite;
 }
 
+.inner {
+  height: 190px;
+  width: 190px;
+  background: white;
+  transform: none;
+  position: relative;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* sign-in button */
+/* card */
+.card-container {
+  display: flex;
+  justify-content: space-between; 
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: rgba(10, 10, 27, 0.329);
+  color: #cdd6f4;
+  border: 3px solid #181825;
+  width: 50%;
+  border-radius: 1rem; 
+  padding: 2rem; 
+  margin: 2rem; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.2s ease;   
+  &:hover {
+    transform: scale(1.02); 
+    color: #cba6f7;
+  }  
+}
+.card bold{
+  color: #74c7ec;
+  font-weight: bold;
+}
+@media only screen and (max-width: 600px) {
+  .card-container{
+    flex-direction: column;
+  }
+  .card{
+    width: auto;
+    padding: 1rem;
+    margin: 0.5rem; 
+  }
+}
+/* card */
 /* ChatPage styles */
-
 main {
   margin-bottom: 1rem;
   max-height: 60vh;
@@ -179,20 +313,18 @@ main {
 
 .moreicon{
   margin-top: 0.15rem;
-}
-
-.moreicon:hover{
-  color: #007bff;
+  &:hover{
+    color: #007bff;
+  }
 }
 
 .delete-button{
   margin-left: 0.2rem;
   margin-top: 0.15rem;
   margin-left: -0.25rem;
-}
-
-.delete-button:hover{
-  color: #007bff;
+  &:hover{
+    color: #007bff;
+  }  
 }
 
 .message.received div.usernameandtime {
@@ -220,6 +352,7 @@ form {
   display: flex;
 }
 
+/* placeholder */
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #000;
@@ -236,7 +369,6 @@ form {
   color: #000;
 }
 
-/* placeholder */
 input:focus::-webkit-input-placeholder {
   position: fixed;
   align-items: center;
@@ -267,6 +399,7 @@ input:focus:-ms-input-placeholder {
   font-size: large;
   transition: all 0.2s;
 }
+/* placeholder */
 
 input {
   background-color: #007bff;
@@ -329,7 +462,7 @@ input::selection {
   opacity: 1;
   right: 0;
 }
-
+ 
 button[type="submit"] {
   background-color: #007bff;
   color: #fff;
@@ -337,39 +470,13 @@ button[type="submit"] {
   padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
+  &:is(:hover, :focus){
+    background-color: #54a7ff;
+    transition: all 0.2s;
+    color: #000;
+  }
 }
 
-button[type="submit"]:is(:hover, :focus) {
-  background-color: #54a7ff;
-  transition: all 0.2s;
-  color: #000;
-}
-
-.githubbtn {
-  border: none;
-  border-radius: 1rem;
-  background-color: #4c7aaf;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: bolder;
-  padding: 0.5rem;
-  width: 10rem;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin-top: 25px;
-}
-
-.githubbtn p {
-  color: #000;
-  text-align: center;
-}
-
-.githubbtn a {
-  text-decoration: none;
-}
-.githubbtn:is(:hover, :focus) {
-  background-color: #5896eb;
-}
 /* Navbar */
 .navbar {
   height: 80px;
@@ -424,10 +531,9 @@ button[type="submit"]:is(:hover, :focus) {
   font-size: 18px;
   border-radius: 1rem;
   cursor: pointer;
-}
-
-.nav-text:hover {
-  background-color: #1a83ff;
+  &:hover {
+    background-color: #1a83ff;
+  }
 }
 
 .nav-menu-items {
@@ -442,27 +548,24 @@ button[type="submit"]:is(:hover, :focus) {
   justify-content: flex-end;
   align-items: center;
   cursor: pointer;
-}
-
-.navbar-toggle:hover {
-  background-color: #1a83ff;
+  &:hover {
+    background-color: #1a83ff;
+  }
 }
 
 .navbar-span {
   margin-left: 16px;
 }
+/* Navbar */
 /* usersettings */
 div.settings-popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 97.5%;
-  height: 97%;
+  width: 100%;
+  height: 100%;
   background-color: rgb(40, 37, 53);
-  border: rgb(40, 37, 53) 5px solid;
-  border-radius: 25px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   z-index: 999; /* Ensure the popup appears above other elements */
 }
 
@@ -495,6 +598,7 @@ div.UserSettings {
   font-size: 1.2rem;
   font-weight: 900;
 }
+/* usersettings */
 /* verification toggle */
 .toggler {
   width: 72px;
@@ -599,6 +703,7 @@ div.UserSettings {
     height: 20px;
   }
 }
+/* verification toggle */
 /* preloader */
 #preloader {
   position: fixed;
@@ -609,9 +714,6 @@ div.UserSettings {
   height: 97%;
   z-index: 999999;
   background-color: rgb(40, 37, 53);
-  border: rgb(40, 37, 53) 5px solid;
-  border-radius: 25px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-image: url(./preloader.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -620,8 +722,4 @@ div.UserSettings {
 #preloader-none {
   opacity: 0;
 }
-
-#no-scroll {
-  overflow: hidden;
-  height: 100vh;
-}
+/* preloader */

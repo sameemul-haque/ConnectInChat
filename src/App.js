@@ -7,6 +7,8 @@ import firebase from "firebase/compat/app";
 import * as AiIcons from "react-icons/ai";
 import * as FaIcons from "react-icons/fa";
 import * as FcIcons from "react-icons/fc";
+import * as TbIcons from "react-icons/tb";
+import * as BiIcons from "react-icons/bi";
 import { IconContext } from "react-icons";
 import Swal from "sweetalert2";
 import { useCollectionData } from "react-firebase-hooks/firestore";
@@ -15,13 +17,20 @@ import Linkify from "react-linkify";
 
 function App() {
   const [user] = useAuthState(auth);
-
+  const [load, upadateLoad] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      upadateLoad(false);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="App">
       <header>
         <Logo className="img" />
         <Navbar user={user} />
       </header>
+      <Preloader load={load} />
       <section>{user ? <ChatHome /> : <SignIn />}</section>
     </div>
   );
@@ -30,20 +39,11 @@ function App() {
 function Preloader(props) {
   return <div id={props.load ? "preloader" : "preloader-none"}></div>;
 }
+
 function ChatHome() {
   const [user] = useAuthState(auth);
-  const [load, upadateLoad] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      upadateLoad(false);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
   return (
     <>
-      <Preloader load={load} />
       <UsernameChecker user={user}>
         <SideChats />
         <PublicChat user={user} />
@@ -51,32 +51,55 @@ function ChatHome() {
     </>
   );
 }
+
 function SignIn() {
   const signInWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider);
   };
-
+  const automatic=true
   return (
     <>
-      <button
-        className="sign-in"
-        style={{ position: "relative", margin: "0 auto" }}
+     <button
         onClick={signInWithGoogle}
+        style={{ position: "relative", margin: "0 auto", marginTop: "2rem" }}
+        className={`button--toggle ${automatic ? "button--toggled" : ""}`}
       >
-        <FcIcons.FcGoogle />
-        &nbsp;Sign in with Google
+        <div className="button--text"><FcIcons.FcGoogle style={{marginTop:2}}/>&nbsp;Sign in with Google</div>
+        <div className="animating">
+          <div className="innerAnimating"></div>
+        </div>
       </button>
-      <footer style={{ marginTop: "50vh", textAlign: "center" }}>
-        <button className="githubbtn" style={{marginRight:10}}>
+      <div className="card-container">
+        <div className="card">
+          <h3>Features</h3><br/>
+
+          <p><TbIcons.TbRocket />&nbsp;&nbsp;Dive into the future of instant communication with ConnectInChat, a web chat application built using React and Firebase!</p><br/>
+          <p><TbIcons.TbCircleKey />&nbsp;&nbsp;Join with ease - Sign in effortlessly within one click using your Google account.</p><br/>
+          <p><TbIcons.TbWorld />&nbsp;&nbsp;A global gathering - Connect with a worldwide community in our single, vibrant public chat room.</p><br/>
+          <p><TbIcons.TbUserCheck />&nbsp;&nbsp;Enhanced user experience - Enjoy a feature-packed environment with username, message timestamps, and user verification mark.</p><br/>
+          <p><TbIcons.TbLink />&nbsp;&nbsp;Interactive links - Now, links become clickable, making it easier than ever to share and access resources.</p><br/>
+          <p><TbIcons.TbTrash />&nbsp;&nbsp;Message control - Take charge of your conversations by giving users the ability to delete their own messages.</p>
+        
+        </div>
+        <div className="card">
+          <h3>Languages and Tools used</h3><br/>
+          <p><BiIcons.BiLogoReact />&nbsp;&nbsp;I utilized the power of <bold>React</bold> to build a responsive and interactive web chat app.</p><br/>
+          <p><BiIcons.BiLogoFirebase />&nbsp;&nbsp;By integrating <bold>Firebase</bold> into my project, I enabled real-time data synchronization and effortless user authentication.</p><br/>
+          <p><BiIcons.BiLogoJavascript />&nbsp;&nbsp;Leveraging the capabilities of <bold>JavaScript</bold>, I implemented dynamic features and functionality in my web chat app.</p><br/>
+          <p><BiIcons.BiLogoCss3 />&nbsp;&nbsp;With <bold>CSS</bold> styling, I designed an appealing and visually pleasing interface for seamless user experience.</p><br/>
+          <p><BiIcons.BiLogoGit />&nbsp;&nbsp;Employing <bold>Git</bold> for version control allowed me to efficiently manage code changes throughout the development process.</p><br/>
+          <p><BiIcons.BiLogoGithub />&nbsp;&nbsp;Utilizing <bold>Github</bold> as a collaborative platform, I stored my project's source code online while facilitating easy sharing with others.</p><br/>
+        </div>
+      </div>
+      <footer style={{textAlign: "center"}}>
+        <button className="githubbtn" >
           <a
             href="https://github.com/sameemul-haque/ConnectInChat/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <p>
-              <FaIcons.FaGithub /> Github Code
-            </p>
+            <FaIcons.FaGithub style={{marginTop:2}}/>&nbsp;Github
           </a>
         </button>
         <button className="githubbtn" style={{marginLeft:10}}>
@@ -85,9 +108,7 @@ function SignIn() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <p>
-              <FaIcons.FaGlobe /> Portfolio
-            </p>
+            <FaIcons.FaLink style={{marginTop:2}}/>&nbsp;Portfolio
           </a>
         </button>
       </footer>

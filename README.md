@@ -1,7 +1,5 @@
 <div align="center">
     <a href="https://connectinchat.web.app/"><img src="src/logo.svg" alt="Logo" width="100" height="100"></a>
-  <h3 align="center">ConnectInChat</h3>
-
   <p align="center">
    A real-time chat web app created using react and firebase
     <br />
@@ -18,7 +16,7 @@
 
 - 🚀 Dive into the future of instant communication with ConnectInChat, a web chat application built using React and Firebase!
 - 🌐 Explore ConnectInChat at [connectinchat.web.app](https://connectinchat.web.app).
-- 🔑 Join with ease - Sign in effortlessly using your Google account.
+- 🔑 Join with ease - Sign in effortlessly within one click using your Google account.
 - 🌍 A global gathering - Connect with a worldwide community in our single, vibrant public chat room.
 - ✅ Enhanced user experience - Enjoy a feature-packed chat environment with added username display, real-time message timestamps, and user verification mark.
 - 🔗 Interactive links - Now, links become clickable, making it easier than ever to share and access resources.
