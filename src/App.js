@@ -17,13 +17,20 @@ import Linkify from "react-linkify";
 
 function App() {
   const [user] = useAuthState(auth);
-
+  const [load, upadateLoad] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      upadateLoad(false);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="App">
       <header>
         <Logo className="img" />
         <Navbar user={user} />
       </header>
+      <Preloader load={load} />
       <section>{user ? <ChatHome /> : <SignIn />}</section>
     </div>
   );
@@ -32,20 +39,11 @@ function App() {
 function Preloader(props) {
   return <div id={props.load ? "preloader" : "preloader-none"}></div>;
 }
+
 function ChatHome() {
   const [user] = useAuthState(auth);
-  const [load, upadateLoad] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      upadateLoad(false);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
   return (
     <>
-      <Preloader load={load} />
       <UsernameChecker user={user}>
         <SideChats />
         <PublicChat user={user} />
@@ -53,6 +51,7 @@ function ChatHome() {
     </>
   );
 }
+
 function SignIn() {
   const signInWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();

@@ -17,7 +17,6 @@ body {
 }
 
 /* Header styles */
-
 header {
   background-color: rgb(40, 37, 53);
   border: rgb(40, 37, 53) 5px solid;
@@ -35,21 +34,19 @@ header {
   margin-right: 1rem;
 }
 
-
-main::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 0.25rem;
 }
 
-main::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   background: #1e1e24;
 }
 
-main::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background: #007bff;
 }
 
 /* Section styles */
-
 section {
   background-color: rgb(40, 37, 53);
   border: rgb(40, 37, 53) 5px solid;
@@ -179,9 +176,7 @@ section {
   }
 }
 /* card */
-
 /* ChatPage styles */
-
 main {
   margin-bottom: 1rem;
   max-height: 60vh;
@@ -314,6 +309,7 @@ form {
   display: flex;
 }
 
+/* placeholder */
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #000;
@@ -330,7 +326,6 @@ form {
   color: #000;
 }
 
-/* placeholder */
 input:focus::-webkit-input-placeholder {
   position: fixed;
   align-items: center;
@@ -361,6 +356,7 @@ input:focus:-ms-input-placeholder {
   font-size: large;
   transition: all 0.2s;
 }
+/* placeholder */
 
 input {
   background-color: #007bff;
@@ -404,8 +400,6 @@ input::selection {
   display: inline-block;
   position: relative;
   transition: 0.5s;
-  &:hover{ padding-right: 15px;
-  }
 }
 
 .savebtn span:after {
@@ -415,10 +409,15 @@ input::selection {
   top: 0;
   right: -15px;
   transition: 0.5s;
-  &:hover {
-    opacity: 1;
-    right: 0;
-  }
+}
+
+.savebtn:hover span {
+  padding-right: 15px;
+}
+
+.savebtn:hover span:after {
+  opacity: 1;
+  right: 0;
 }
  
 button[type="submit"] {
@@ -543,18 +542,16 @@ button[type="submit"] {
 .navbar-span {
   margin-left: 16px;
 }
+/* Navbar */
 /* usersettings */
 div.settings-popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 97.5%;
-  height: 97%;
+  width: 100%;
+  height: 100%;
   background-color: rgb(40, 37, 53);
-  border: rgb(40, 37, 53) 5px solid;
-  border-radius: 25px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   z-index: 999; /* Ensure the popup appears above other elements */
 }
 
@@ -587,6 +584,7 @@ div.UserSettings {
   font-size: 1.2rem;
   font-weight: 900;
 }
+/* usersettings */
 /* verification toggle */
 .toggler {
   width: 72px;
@@ -691,6 +689,7 @@ div.UserSettings {
     height: 20px;
   }
 }
+/* verification toggle */
 /* preloader */
 #preloader {
   position: fixed;
@@ -701,9 +700,6 @@ div.UserSettings {
   height: 97%;
   z-index: 999999;
   background-color: rgb(40, 37, 53);
-  border: rgb(40, 37, 53) 5px solid;
-  border-radius: 25px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background-image: url(./preloader.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -712,8 +708,4 @@ div.UserSettings {
 #preloader-none {
   opacity: 0;
 }
-
-#no-scroll {
-  overflow: hidden;
-  height: 100vh;
-}
+/* preloader */
