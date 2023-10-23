@@ -54,6 +54,35 @@ section {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   padding: 1rem;
 }
+.githubbtn {
+  background-color: #181825;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bolder;
+  padding: 0.5rem;
+  width: 8rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 25px;
+  border: 3px solid #1e1e2e;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 16px 0 #7f849c0c, 0 6px 20px 0 #7f849c15;
+  transition: transform 0.2s ease;  
+  &:hover {
+    background-color: #11111b;
+    transform: scale(1.05);
+    border-color: #181825;
+  } 
+}
+
+.githubbtn a {
+  text-decoration: none;
+  justify-content: center;
+  color: #fff;
+  display: flex;
+  font-weight: bold;
+  font-size: 1rem;
+}
 
 /* sign-in button */
 :root {
@@ -163,7 +192,7 @@ section {
 .card {
   background-color: rgba(10, 10, 27, 0.329);
   color: #cdd6f4;
-  border: 1px solid #11111b;
+  border: 3px solid #181825;
   width: 50%;
   border-radius: 1rem; 
   padding: 2rem; 
@@ -446,35 +475,6 @@ button[type="submit"] {
     transition: all 0.2s;
     color: #000;
   }
-}
-
-.githubbtn {
-  border: none;
-  border-radius: 0.5rem;
-  background-color: #9399b2;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: bolder;
-  padding: 0.5rem;
-  width: 8rem;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin-top: 25px;
-  box-shadow: 0 8px 16px 0 #11111b, 0 6px 20px 0 #11111b;
-  transition: transform 0.2s ease;  
-  &:hover {
-    background-color: #b4befe;
-    transform: scale(1.05);
-  } 
-}
-
-.githubbtn a {
-  text-decoration: none;
-  justify-content: center;
-  color: #11111b;
-  display: flex;
-  font-weight: bold;
-  font-size: 1rem;
 }
 
 /* Navbar */
