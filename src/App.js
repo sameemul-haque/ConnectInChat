@@ -7,6 +7,7 @@ import firebase from "firebase/compat/app";
 import * as AiIcons from "react-icons/ai";
 import * as FaIcons from "react-icons/fa";
 import * as FcIcons from "react-icons/fc";
+import * as TbIcons from "react-icons/tb";
 import { IconContext } from "react-icons";
 import Swal from "sweetalert2";
 import { useCollectionData } from "react-firebase-hooks/firestore";
@@ -69,22 +70,28 @@ function SignIn() {
           <div className="innerAnimating"></div>
         </div>
       </button>
-      <main style={{margin:25,color:"white"}}>
-        <h3>Features</h3>
-        <p>🚀 Dive into the future of instant communication with ConnectInChat, a web chat application built using React and Firebase!</p>
-        <p>🔑 Join with ease - Sign in effortlessly using your Google account.</p>
-        <p>🌍 A global gathering - Connect with a worldwide community in our single, vibrant public chat room.</p>
-        <p>✅ Enhanced user experience - Enjoy a feature-packed chat environment with added username display, real-time message timestamps, and user verification mark.</p>
-        <p>🔗 Interactive links - Now, links become clickable, making it easier than ever to share and access resources.</p>
-        <p>🗑️ Message control - Take charge of your conversations by giving users the ability to delete their own messages. It's all about maintaining control and privacy.</p>
-        <h3>Languages and Tools used</h3>
-        <p>React</p>
-        <p>Firebase</p>
-        <p>JavaScript</p>
-        <p>CSS</p>
-        <p>Git</p>
-        <p>Github</p>
-      </main>
+      <div className="card-container">
+        <div className="card">
+          <h3>Features</h3><br/>
+
+          <p><TbIcons.TbRocket />&nbsp;&nbsp;Dive into the future of instant communication with ConnectInChat, a web chat application built using React and Firebase!</p><br/>
+          <p><TbIcons.TbCircleKey />&nbsp;&nbsp;Join with ease - Sign in effortlessly within one click using your Google account.</p><br/>
+          <p><TbIcons.TbWorld />&nbsp;&nbsp;A global gathering - Connect with a worldwide community in our single, vibrant public chat room.</p><br/>
+          <p><TbIcons.TbUserCheck />&nbsp;&nbsp;Enhanced user experience - Enjoy a feature-packed environment with username, message timestamps, and user verification mark.</p><br/>
+          <p><TbIcons.TbLink />&nbsp;&nbsp;Interactive links - Now, links become clickable, making it easier than ever to share and access resources.</p><br/>
+          <p><TbIcons.TbTrash />&nbsp;&nbsp;Message control - Take charge of your conversations by giving users the ability to delete their own messages.</p>
+        
+        </div>
+        <div className="card">
+          <h3>Languages and Tools used</h3>
+          <p>React</p>
+          <p>Firebase</p>
+          <p>JavaScript</p>
+          <p>CSS</p>
+          <p>Git</p>
+          <p>Github</p>
+        </div>
+      </div>
       <footer style={{textAlign: "center"}}>
         <button className="githubbtn" >
           <a
