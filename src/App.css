@@ -419,27 +419,27 @@ button[type="submit"]:is(:hover, :focus) {
 .githubbtn {
   border: none;
   border-radius: 1rem;
-  background-color: #4c7aaf;
+  background-color: #9399b2;
   text-align: center;
   font-size: 1rem;
   font-weight: bolder;
   padding: 0.5rem;
-  width: 10rem;
+  width: 8rem;
   transition: all 0.5s;
   cursor: pointer;
   margin-top: 25px;
 }
 
-.githubbtn p {
-  color: #000;
-  text-align: center;
-}
-
 .githubbtn a {
   text-decoration: none;
+  justify-content: center;
+  color: #11111b;
+  display: flex;
+  font-weight: bold;
+  font-size: 1rem;
 }
 .githubbtn:is(:hover, :focus) {
-  background-color: #5896eb;
+  background-color: #b4befe;
 }
 /* Navbar */
 .navbar {

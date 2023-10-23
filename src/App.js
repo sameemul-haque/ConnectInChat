@@ -86,15 +86,13 @@ function SignIn() {
         <p>Github</p>
       </main>
       <footer style={{textAlign: "center"}}>
-        <button className="githubbtn" style={{marginRight:10}}>
+        <button className="githubbtn" >
           <a
             href="https://github.com/sameemul-haque/ConnectInChat/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <p>
-              <FaIcons.FaGithub /> Github Code
-            </p>
+            <FaIcons.FaGithub style={{marginTop:2}}/>&nbsp;Github
           </a>
         </button>
         <button className="githubbtn" style={{marginLeft:10}}>
@@ -103,9 +101,7 @@ function SignIn() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <p>
-              <FaIcons.FaGlobe /> Portfolio
-            </p>
+            <FaIcons.FaLink style={{marginTop:2}}/>&nbsp;Portfolio
           </a>
         </button>
       </footer>
