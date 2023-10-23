@@ -63,27 +63,98 @@ section {
   padding: 1rem;
 }
 
-.sign-in {
-  background-color: #fff;
-  color: #000;
-  font-size: 1rem;
-  font-weight: bolder;
-  border: #000 solid 0.2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+/* sign-in button */
+:root {
+  --base-colour: #313244;
+  --move-colour: #fff;
+}
+
+.button--toggle {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  clip-path: inset(0px, 0px, 0px, 0px);
+  outline: none;
+  padding: 3px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 3px;
   cursor: pointer;
+  background-color: #000;
+}
+.button--toggled .animating {
+  background-size: 100% 100%;
+  background: linear-gradient(
+    0deg,
+    var(--base-colour) 40%,
+    var(--move-colour) 50%,
+    var(--base-colour) 60%
+  );
+  animation: rotation 1s linear infinite;
+}
+.button--toggled .innerAnimating {
+  height: 150%;
+  width: 50%;
+  background: var(--base-colour);
+}
+
+.button--text {
+  opacity: 1;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  padding: 15px;
+  background-color: #181825;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.animating {
+  border-radius: 5px;
+  z-index: 0;
+  height: 500%;
+  width: 300%;
   display: flex;
   align-items: center;
+  position: absolute;
 }
 
-.sign-in:is(:hover, :focus) {
-  border: #fff solid 0.2rem;
-  font-size: 1.1rem;
-  transition: all 0.2s;
-  background-color: #000;
-  color: #fff;
+.moving {
+  z-index: 0;
+  height: 400px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  background-size: 400% 400%;
+  background: linear-gradient(
+    0deg,
+    var(--base-colour) 40%,
+    var(--move-colour) 50%,
+    var(--base-colour) 60%
+  );
+  animation: rotation 0.5s ease-in-out infinite;
 }
 
+.inner {
+  height: 190px;
+  width: 190px;
+  background: white;
+  transform: none;
+  position: relative;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* sign-in button */
 /* ChatPage styles */
 
 main {

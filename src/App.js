@@ -56,16 +56,18 @@ function SignIn() {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider);
   };
-
+  const automatic=true
   return (
     <>
-      <button
-        className="sign-in"
-        style={{ position: "relative", margin: "0 auto" }}
+     <button
         onClick={signInWithGoogle}
+        style={{ position: "relative", margin: "0 auto" }}
+        className={`button--toggle ${automatic ? "button--toggled" : ""}`}
       >
-        <FcIcons.FcGoogle />
-        &nbsp;Sign in with Google
+        <div className="button--text"><FcIcons.FcGoogle style={{marginTop:2}}/>&nbsp;Sign in with Google</div>
+        <div className="animating">
+          <div className="innerAnimating"></div>
+        </div>
       </button>
       <main style={{margin:25,color:"white"}}>
         <h3>Features</h3>
