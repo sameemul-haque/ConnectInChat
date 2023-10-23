@@ -1,7 +1,5 @@
 <div align="center">
     <a href="https://connectinchat.web.app/"><img src="src/logo.svg" alt="Logo" width="100" height="100"></a>
-  <h3 align="center">ConnectInChat</h3>
-
   <p align="center">
    A real-time chat web app created using react and firebase
     <br />
