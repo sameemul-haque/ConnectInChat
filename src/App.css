@@ -173,7 +173,11 @@ section {
   &:hover {
     transform: scale(1.02); 
     color: #cba6f7;
-  }
+  }  
+}
+.card bold{
+  color: #74c7ec;
+  font-weight: bold;
 }
 /* card */
 /* ChatPage styles */
