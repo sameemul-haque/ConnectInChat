@@ -8,6 +8,7 @@ import * as AiIcons from "react-icons/ai";
 import * as FaIcons from "react-icons/fa";
 import * as FcIcons from "react-icons/fc";
 import * as TbIcons from "react-icons/tb";
+import * as BiIcons from "react-icons/bi";
 import { IconContext } from "react-icons";
 import Swal from "sweetalert2";
 import { useCollectionData } from "react-firebase-hooks/firestore";
@@ -83,13 +84,13 @@ function SignIn() {
         
         </div>
         <div className="card">
-          <h3>Languages and Tools used</h3>
-          <p>React</p>
-          <p>Firebase</p>
-          <p>JavaScript</p>
-          <p>CSS</p>
-          <p>Git</p>
-          <p>Github</p>
+          <h3>Languages and Tools used</h3><br/>
+          <p><BiIcons.BiLogoReact />&nbsp;&nbsp;React</p><br/>
+          <p><BiIcons.BiLogoFirebase />&nbsp;&nbsp;Firebase</p><br/>
+          <p><BiIcons.BiLogoJavascript />&nbsp;&nbsp;JavaScript</p><br/>
+          <p><BiIcons.BiLogoCss3 />&nbsp;&nbsp;CSS</p><br/>
+          <p><BiIcons.BiLogoGit />&nbsp;&nbsp;Git</p><br/>
+          <p><BiIcons.BiLogoGithub />&nbsp;&nbsp;Github</p><br/>
         </div>
       </div>
       <footer style={{textAlign: "center"}}>
