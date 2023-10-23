@@ -179,6 +179,16 @@ section {
   color: #74c7ec;
   font-weight: bold;
 }
+@media only screen and (max-width: 600px) {
+  .card-container{
+    flex-direction: column;
+  }
+  .card{
+    width: auto;
+    padding: 1rem;
+    margin: 0.5rem; 
+  }
+}
 /* card */
 /* ChatPage styles */
 main {

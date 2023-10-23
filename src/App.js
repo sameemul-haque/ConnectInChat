@@ -62,7 +62,7 @@ function SignIn() {
     <>
      <button
         onClick={signInWithGoogle}
-        style={{ position: "relative", margin: "0 auto" }}
+        style={{ position: "relative", margin: "0 auto", marginTop: "2rem" }}
         className={`button--toggle ${automatic ? "button--toggled" : ""}`}
       >
         <div className="button--text"><FcIcons.FcGoogle style={{marginTop:2}}/>&nbsp;Sign in with Google</div>
@@ -84,12 +84,12 @@ function SignIn() {
         </div>
         <div className="card">
           <h3>Languages and Tools used</h3><br/>
-          <p><BiIcons.BiLogoReact />&nbsp;&nbsp; I utilized the power of <bold>React</bold> to build a responsive and interactive web chat app.</p><br/>
-          <p><BiIcons.BiLogoFirebase />&nbsp;&nbsp; By integrating <bold>Firebase</bold> into my project, I enabled real-time data synchronization and effortless user authentication.</p><br/>
-          <p><BiIcons.BiLogoJavascript />&nbsp;&nbsp; Leveraging the capabilities of <bold>JavaScript</bold>, I implemented dynamic features and functionality in my web chat app.</p><br/>
-          <p><BiIcons.BiLogoCss3 />&nbsp;&nbsp; With <bold>CSS</bold> styling, I designed an appealing and visually pleasing interface for seamless user experience.</p><br/>
-          <p><BiIcons.BiLogoGit />&nbsp;&nbsp; Employing <bold>Git</bold> for version control allowed me to efficiently manage code changes throughout the development process.</p><br/>
-          <p><BiIcons.BiLogoGithub />&nbsp;&nbsp; Utilizing <bold>Github</bold> as a collaborative platform, I stored my project's source code online while facilitating easy sharing with others.</p><br/>
+          <p><BiIcons.BiLogoReact />&nbsp;&nbsp;I utilized the power of <bold>React</bold> to build a responsive and interactive web chat app.</p><br/>
+          <p><BiIcons.BiLogoFirebase />&nbsp;&nbsp;By integrating <bold>Firebase</bold> into my project, I enabled real-time data synchronization and effortless user authentication.</p><br/>
+          <p><BiIcons.BiLogoJavascript />&nbsp;&nbsp;Leveraging the capabilities of <bold>JavaScript</bold>, I implemented dynamic features and functionality in my web chat app.</p><br/>
+          <p><BiIcons.BiLogoCss3 />&nbsp;&nbsp;With <bold>CSS</bold> styling, I designed an appealing and visually pleasing interface for seamless user experience.</p><br/>
+          <p><BiIcons.BiLogoGit />&nbsp;&nbsp;Employing <bold>Git</bold> for version control allowed me to efficiently manage code changes throughout the development process.</p><br/>
+          <p><BiIcons.BiLogoGithub />&nbsp;&nbsp;Utilizing <bold>Github</bold> as a collaborative platform, I stored my project's source code online while facilitating easy sharing with others.</p><br/>
         </div>
       </div>
       <footer style={{textAlign: "center"}}>
