@@ -35,11 +35,6 @@ header {
   margin-right: 1rem;
 }
 
-.img:is(:hover, :focus) {
-  height: 12vh;
-  width: 12vh;
-  transition: 0.2s all;
-}
 
 main::-webkit-scrollbar {
   width: 0.25rem;
@@ -83,6 +78,10 @@ section {
   cursor: pointer;
   background-color: #000;
   box-shadow: 0 8px 16px 0 #7f849c0c, 0 6px 20px 0 #7f849c15;
+  transition: transform 0.2s ease;   
+  &:hover {
+    transform: scale(1.05);
+  } 
 }
 .button--toggled .animating {
   background-size: 100% 100%;
@@ -276,20 +275,18 @@ main {
 
 .moreicon{
   margin-top: 0.15rem;
-}
-
-.moreicon:hover{
-  color: #007bff;
+  &:hover{
+    color: #007bff;
+  }
 }
 
 .delete-button{
   margin-left: 0.2rem;
   margin-top: 0.15rem;
   margin-left: -0.25rem;
-}
-
-.delete-button:hover{
-  color: #007bff;
+  &:hover{
+    color: #007bff;
+  }  
 }
 
 .message.received div.usernameandtime {
@@ -407,6 +404,8 @@ input::selection {
   display: inline-block;
   position: relative;
   transition: 0.5s;
+  &:hover{ padding-right: 15px;
+  }
 }
 
 .savebtn span:after {
@@ -416,17 +415,12 @@ input::selection {
   top: 0;
   right: -15px;
   transition: 0.5s;
+  &:hover {
+    opacity: 1;
+    right: 0;
+  }
 }
-
-.savebtn:hover span {
-  padding-right: 15px;
-}
-
-.savebtn:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
+ 
 button[type="submit"] {
   background-color: #007bff;
   color: #fff;
@@ -434,17 +428,16 @@ button[type="submit"] {
   padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
-}
-
-button[type="submit"]:is(:hover, :focus) {
-  background-color: #54a7ff;
-  transition: all 0.2s;
-  color: #000;
+  &:is(:hover, :focus){
+    background-color: #54a7ff;
+    transition: all 0.2s;
+    color: #000;
+  }
 }
 
 .githubbtn {
   border: none;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   background-color: #9399b2;
   text-align: center;
   font-size: 1rem;
@@ -455,6 +448,11 @@ button[type="submit"]:is(:hover, :focus) {
   cursor: pointer;
   margin-top: 25px;
   box-shadow: 0 8px 16px 0 #11111b, 0 6px 20px 0 #11111b;
+  transition: transform 0.2s ease;  
+  &:hover {
+    background-color: #b4befe;
+    transform: scale(1.05);
+  } 
 }
 
 .githubbtn a {
@@ -465,9 +463,7 @@ button[type="submit"]:is(:hover, :focus) {
   font-weight: bold;
   font-size: 1rem;
 }
-.githubbtn:is(:hover, :focus) {
-  background-color: #b4befe;
-}
+
 /* Navbar */
 .navbar {
   height: 80px;
@@ -522,10 +518,9 @@ button[type="submit"]:is(:hover, :focus) {
   font-size: 18px;
   border-radius: 1rem;
   cursor: pointer;
-}
-
-.nav-text:hover {
-  background-color: #1a83ff;
+  &:hover {
+    background-color: #1a83ff;
+  }
 }
 
 .nav-menu-items {
@@ -540,10 +535,9 @@ button[type="submit"]:is(:hover, :focus) {
   justify-content: flex-end;
   align-items: center;
   cursor: pointer;
-}
-
-.navbar-toggle:hover {
-  background-color: #1a83ff;
+  &:hover {
+    background-color: #1a83ff;
+  }
 }
 
 .navbar-span {
