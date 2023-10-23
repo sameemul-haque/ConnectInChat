@@ -67,7 +67,23 @@ function SignIn() {
         <FcIcons.FcGoogle />
         &nbsp;Sign in with Google
       </button>
-      <footer style={{ marginTop: "50vh", textAlign: "center" }}>
+      <main style={{margin:25,color:"white"}}>
+        <h3>Features</h3>
+        <p>🚀 Dive into the future of instant communication with ConnectInChat, a web chat application built using React and Firebase!</p>
+        <p>🔑 Join with ease - Sign in effortlessly using your Google account.</p>
+        <p>🌍 A global gathering - Connect with a worldwide community in our single, vibrant public chat room.</p>
+        <p>✅ Enhanced user experience - Enjoy a feature-packed chat environment with added username display, real-time message timestamps, and user verification mark.</p>
+        <p>🔗 Interactive links - Now, links become clickable, making it easier than ever to share and access resources.</p>
+        <p>🗑️ Message control - Take charge of your conversations by giving users the ability to delete their own messages. It's all about maintaining control and privacy.</p>
+        <h3>Languages and Tools used</h3>
+        <p>React</p>
+        <p>Firebase</p>
+        <p>JavaScript</p>
+        <p>CSS</p>
+        <p>Git</p>
+        <p>Github</p>
+      </main>
+      <footer style={{textAlign: "center"}}>
         <button className="githubbtn" style={{marginRight:10}}>
           <a
             href="https://github.com/sameemul-haque/ConnectInChat/"
