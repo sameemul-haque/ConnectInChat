@@ -117,11 +117,11 @@ section {
     var(--move-colour) 50%,
     var(--base-colour) 60%
   );
-  animation: rotation 1s linear infinite;
+  animation: rotation 10s linear infinite;
 }
 .button--toggled .innerAnimating {
-  height: 150%;
-  width: 50%;
+  height: 100%;
+  width: 10%;
   background: var(--base-colour);
 }
 
