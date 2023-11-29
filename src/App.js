@@ -28,6 +28,7 @@ function App() {
     <div className="App">
       <header>
         <Logo className="img" />
+        <h1 style={{color:"#bac2de", fontSize:"5vw"}}>ConnectInChat</h1>
         <Navbar user={user} />
       </header>
       <Preloader load={load} />
